@@ -50,7 +50,7 @@ char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
 char const*const LED_BLINK_FILE
-        = "/sys/class/leds/red/device/blink";
+        = "/sys/class/leds/red/blink";
 
 /**
  * device methods
