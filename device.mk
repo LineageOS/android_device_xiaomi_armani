@@ -76,6 +76,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8226
 
+# GPS
+PRODUCT_PACKAGES += \
+    gps.msm8226
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8226 \
