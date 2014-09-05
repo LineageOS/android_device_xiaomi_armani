@@ -32,7 +32,6 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on init
-
     # Immersioin
     export VIBE_PIPE_PATH /dev/pipes
     mkdir /dev/pipes 0771 system system
@@ -119,7 +118,6 @@ service qrngd /system/bin/qrngd -f
     class main
     user root
     group root
-
 
 service qrngp /system/bin/qrngp
     class main

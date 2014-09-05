@@ -17,7 +17,7 @@
 
     <!-- USB OTG drive -->
     <storage android:storageDescription="@string/storage_usb"
-	android:mountPoint="/storage/udisk"
+	android:mountPoint="/storage/usbdisk"
 	android:primary="false"
 	android:removable="true" />
 

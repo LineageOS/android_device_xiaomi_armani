@@ -27,6 +27,11 @@ allow hci_attach persist_bluetooth_file:file { read open };
 allow bluetooth_loader persist_file:dir search;
 r_dir_file(bluetooth_loader, persist_bluetooth_file)
 
+# Talk to init over the property socket
+unix_socket_connect(bluetooth_loader, property, init)
+# Set persist.service.bdroid.* and bluetooth.* property values
+allow { bluetooth bluetooth_loader } bluetooth_prop:property_service set;
+
 # Shared memory node access
 allow hci_attach bluetooth_device:chr_file rw_file_perms;
 

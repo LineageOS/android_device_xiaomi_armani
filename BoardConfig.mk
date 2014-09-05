@@ -41,10 +41,6 @@ TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a7
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-# Flags
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-
 # Kernel
 #TARGET_KERNEL_SOURCE := kernel/xiaomi/armani
 #TARGET_KERNEL_CONFIG := cyanogenmod_armani_defconfig
@@ -119,6 +115,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
