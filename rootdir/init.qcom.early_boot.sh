@@ -143,7 +143,7 @@ case "$1" in
         platform_subtype=`cat /sys/devices/soc0/platform_subtype` 2> /dev/null
         case "$platform_subtype" in
             "SKUG")
-                setprop persist.radio.multisim.config ""
+                setprop persist.multisim.config ""
                 ;;
             *)
                 ;;
