@@ -19,7 +19,7 @@ LOCAL_PATH := device/xiaomi/armani
 # inherit from the proprietary version
 -include vendor/xiaomi/armani/BoardConfigVendor.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/armani/include
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := armani
@@ -108,6 +108,9 @@ AUDIO_FEATURE_DISABLED_DS1_DOLBY_DDP := true
 # Media
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 TARGET_QCOM_MEDIA_VARIANT := caf
+
+# Hardware tunables framework
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
 
 # FM
 BOARD_HAVE_QCOM_FM := true
