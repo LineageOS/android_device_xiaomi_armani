@@ -586,8 +586,6 @@ on property:sys.usb.config=mtp
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/functions mtp,mass_storage
-    write /sys/class/android_usb/android0/f_mass_storage/lun/ro 1
-    write /sys/class/android_usb/android0/f_mass_storage/lun/file /data/miui/cdrom_install.iso
     write /sys/class/android_usb/android0/enable 1
     start mdbd
     setprop sys.usb.state ${sys.usb.config}
@@ -599,8 +597,6 @@ on property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/functions mtp,mass_storage,adb
-    write /sys/class/android_usb/android0/f_mass_storage/lun/ro 1
-    write /sys/class/android_usb/android0/f_mass_storage/lun/file /data/miui/cdrom_install.iso
     write /sys/class/android_usb/android0/enable 1
     start adbd
     start mdbd
