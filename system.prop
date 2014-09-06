@@ -1,8 +1,4 @@
 
-#
-# system.prop for armani
-#
-
 # Telephony
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
@@ -35,5 +31,5 @@ persist.cne.feature=1
 
 # Recovery
 ro.cwm.enable_key_repeat=true
-ro.cwm.forbid_mount=/fsg,/firmware,/persist
-ro.cwm.forbid_format=/boot,/fsg,/firmware,/persist
+ro.cwm.forbid_mount=/firmware,/persist
+ro.cwm.forbid_format=/boot,/firmware,/persist
