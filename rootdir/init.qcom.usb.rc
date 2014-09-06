@@ -109,7 +109,6 @@ on property:sys.usb.config=diag,adb
     write /sys/class/android_usb/android0/functions diag,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb
@@ -122,7 +121,6 @@ on property:sys.usb.config=diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb
     write /sys/class/android_usb/android0/functions diag,adb,serial,rmnet,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,acm_smd,acm_tty,rmnet_bam,mass_storage,adb
@@ -135,7 +133,6 @@ on property:sys.usb.config=diag,acm_smd,acm_tty,rmnet_bam,mass_storage,adb
     write /sys/class/android_usb/android0/functions diag,adb,acm,rmnet,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,serial_smd,serial_tty,rmnet_bam,mass_storage
@@ -169,7 +166,6 @@ on property:sys.usb.config=diag,diag_mdm,serial_sdio,serial_smd,rmnet_smd_sdio,m
     write /sys/class/android_usb/android0/functions diag,adb,serial,rmnet_smd_sdio,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,diag_mdm,acm_sdio,acm_smd,rmnet_smd_sdio,mass_storage,adb
@@ -181,7 +177,6 @@ on property:sys.usb.config=diag,diag_mdm,acm_sdio,acm_smd,rmnet_smd_sdio,mass_st
     write /sys/class/android_usb/android0/functions diag,adb,acm,rmnet_smd_sdio,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,diag_mdm,serial_sdio,serial_smd,rmnet_smd_sdio,mass_storage
@@ -213,7 +208,6 @@ on property:sys.usb.config=diag,diag_mdm,serial_sdio,serial_tty,rmnet_sdio,mass_
     write /sys/class/android_usb/android0/functions diag,adb,serial,rmnet_sdio,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,diag_mdm,acm_sdio,acm_tty,rmnet_sdio,mass_storage,adb
@@ -225,7 +219,6 @@ on property:sys.usb.config=diag,diag_mdm,acm_sdio,acm_tty,rmnet_sdio,mass_storag
     write /sys/class/android_usb/android0/functions diag,adb,acm,rmnet_sdio,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,diag_mdm,serial_sdio,serial_tty,rmnet_sdio,mass_storage
@@ -257,7 +250,6 @@ on property:sys.usb.config=diag,serial_tty,serial_tty,rmnet_smd,mass_storage,adb
     write /sys/class/android_usb/android0/functions diag,adb,serial,rmnet_smd,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     start port-bridge
     setprop sys.usb.state ${sys.usb.config}
 
@@ -270,7 +262,6 @@ on property:sys.usb.config=diag,acm_tty,acm_tty,rmnet_smd,mass_storage,adb
     write /sys/class/android_usb/android0/functions diag,adb,acm,rmnet_smd,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     start port-bridge
     setprop sys.usb.state ${sys.usb.config}
 
@@ -304,7 +295,6 @@ on property:sys.usb.config=diag,serial_smd,serial_tty,rmnet_smd,mass_storage,adb
     write /sys/class/android_usb/android0/functions diag,adb,serial,rmnet_smd,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,acm_smd,acm_tty,rmnet_smd,mass_storage,adb
@@ -316,7 +306,6 @@ on property:sys.usb.config=diag,acm_smd,acm_tty,rmnet_smd,mass_storage,adb
     write /sys/class/android_usb/android0/functions diag,adb,acm,rmnet_smd,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     start port-bridge
     setprop sys.usb.state ${sys.usb.config}
 
@@ -353,7 +342,6 @@ on property:sys.usb.config=diag,serial_hsic,serial_tty,rmnet_hsic,mass_storage,a
     write /sys/class/android_usb/android0/functions diag,adb,serial,rmnet,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 # Fusion 3 composition with diag_mdm and adb
@@ -369,7 +357,6 @@ on property:sys.usb.config=diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_
     write /sys/class/android_usb/android0/functions diag,adb,serial,rmnet,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 # Fusion 3 composition with diag_mdm
@@ -399,7 +386,6 @@ on property:sys.usb.config=diag,diag_mdm,diag_qsc,serial_hsic,serial_hsuart,rmne
     write /sys/class/android_usb/android0/functions diag,adb,serial,rmnet,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 # Fusion 3 DSDA composition without adb
@@ -429,7 +415,6 @@ on property:sys.usb.config=diag,diag_mdm,diag_mdm2,serial_hsic,serial_hsusb,rmne
     write /sys/class/android_usb/android0/functions diag,adb,serial,rmnet,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 # Fusion 3 DSDA2 composition without adb
@@ -457,7 +442,6 @@ on property:sys.usb.config=diag,diag_qsc,serial_smd,serial_tty,serial_hsuart,rmn
     write /sys/class/android_usb/android0/functions diag,adb,serial,rmnet,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 # Fusion 2.2 composition with diag_qsc
@@ -480,7 +464,6 @@ on property:sys.usb.config=rndis
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/functions rndis
     write /sys/class/android_usb/android0/enable 1
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=rndis,adb
@@ -492,7 +475,6 @@ on property:sys.usb.config=rndis,adb
     write /sys/class/android_usb/android0/functions rndis,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=rndis,diag
@@ -512,7 +494,6 @@ on property:sys.usb.config=rndis,diag,adb
     write /sys/class/android_usb/android0/functions rndis,diag,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=rndis,diag,diag_mdm
@@ -532,7 +513,6 @@ on property:sys.usb.config=rndis,diag,diag_mdm,adb
     write /sys/class/android_usb/android0/functions rndis,diag,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=rndis,diag,diag_mdm,diag_qsc
@@ -542,7 +522,6 @@ on property:sys.usb.config=rndis,diag,diag_mdm,diag_qsc
     write /sys/class/android_usb/android0/f_diag/clients diag,diag_mdm,diag_qsc
     write /sys/class/android_usb/android0/functions rndis,diag
     write /sys/class/android_usb/android0/enable 1
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=rndis,diag,diag_mdm,diag_qsc,adb
@@ -553,7 +532,6 @@ on property:sys.usb.config=rndis,diag,diag_mdm,diag_qsc,adb
     write /sys/class/android_usb/android0/functions rndis,diag,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=ptp
@@ -564,7 +542,6 @@ on property:sys.usb.config=ptp
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/functions ptp
     write /sys/class/android_usb/android0/enable 1
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=ptp,adb
@@ -576,7 +553,6 @@ on property:sys.usb.config=ptp,adb
     write /sys/class/android_usb/android0/functions ptp,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mtp
@@ -587,7 +563,6 @@ on property:sys.usb.config=mtp
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/functions mtp,mass_storage
     write /sys/class/android_usb/android0/enable 1
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mtp,adb
@@ -599,7 +574,6 @@ on property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/functions mtp,mass_storage,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mtp,diag
@@ -609,7 +583,6 @@ on property:sys.usb.config=mtp,diag
     write /sys/class/android_usb/android0/f_diag/clients diag
     write /sys/class/android_usb/android0/functions mtp,diag
     write /sys/class/android_usb/android0/enable 1
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mtp,diag,adb
@@ -620,7 +593,6 @@ on property:sys.usb.config=mtp,diag,adb
     write /sys/class/android_usb/android0/functions mtp,diag,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mtp,diag,diag_mdm
@@ -640,7 +612,6 @@ on property:sys.usb.config=mtp,diag,diag_mdm,adb
     write /sys/class/android_usb/android0/functions mtp,diag,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mtp,diag,diag_mdm,diag_qsc
@@ -660,7 +631,6 @@ on property:sys.usb.config=mtp,diag,diag_mdm,diag_qsc,adb
     write /sys/class/android_usb/android0/functions mtp,diag,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,diag_mdm,ccid
@@ -680,7 +650,6 @@ on property:sys.usb.config=diag,diag_mdm,ccid,adb
     write /sys/class/android_usb/android0/functions diag,adb,ccid
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mass_storage,adb
@@ -692,7 +661,6 @@ on property:sys.usb.config=mass_storage,adb
     write /sys/class/android_usb/android0/functions adb,mass_storage
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 #Mass-storage only composition
@@ -704,7 +672,6 @@ on property:sys.usb.config=mass_storage
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/functions mass_storage
     write /sys/class/android_usb/android0/enable 1
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,qdss
@@ -724,7 +691,6 @@ on property:sys.usb.config=diag,qdss,adb
     write /sys/class/android_usb/android0/functions diag,qdss,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=diag,qdss,rmnet_bam
@@ -747,7 +713,6 @@ on property:sys.usb.config=diag,qdss,rmnet_bam,adb
     write /sys/module/dwc3/parameters/tx_fifo_resize_enable 1
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=rndis,diag,qdss
@@ -768,7 +733,6 @@ on property:sys.usb.config=rndis,diag,qdss,adb
     write /sys/module/dwc3/parameters/tx_fifo_resize_enable 1
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=ncm
@@ -786,5 +750,4 @@ on property:sys.usb.config=ncm,adb
     write /sys/class/android_usb/android0/functions ncm,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
