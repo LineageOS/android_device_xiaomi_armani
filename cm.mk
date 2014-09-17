@@ -10,3 +10,5 @@ $(call inherit-product, device/xiaomi/armani/full_armani.mk)
 
 PRODUCT_RELEASE_NAME := Redmi 1S
 PRODUCT_NAME := cm_armani
+
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
