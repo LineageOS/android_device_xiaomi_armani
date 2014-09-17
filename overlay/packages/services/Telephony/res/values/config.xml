@@ -15,12 +15,6 @@
 -->
 
 <resources>
-    <!-- Flag indicating whether the Phone app should ignore
-         EVENT_SIM_PERSO_LOCKED events from the Sim.  If true, this will
-         prevent the IccDepersonalizationPanel from being shown,
-         and effectively disable the "Sim perso unlock" feature. -->
-    <bool name="ignore_perso_locked_events">true</bool>
-
     <!-- Determine whether calls to mute the microphone in PhoneUtils
          are routed through the android.media.AudioManager class (true) or through
          the com.android.internal.telephony.Phone interface (false). -->
@@ -31,5 +25,4 @@
 
     <!-- Flag indicating if the tty is enabled -->
     <bool name="tty_enabled">true</bool>
-
 </resources>
