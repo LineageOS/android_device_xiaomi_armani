@@ -614,7 +614,7 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
     disabled
     oneshot
 
-service charger /charger
+service charger /sbin/chargeonlymode
     class charger
 
 service ssr_diag /system/bin/ssr_diag
