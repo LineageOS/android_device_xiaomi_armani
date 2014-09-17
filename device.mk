@@ -62,11 +62,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/xiaomi/armani/rootdir,root)
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger \
-    charger_res_images
-
 # Lights
 PRODUCT_PACKAGES += \
     lights.msm8226
