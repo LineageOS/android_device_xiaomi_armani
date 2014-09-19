@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+
+#define LOG_NDEBUG 0
+#define LOG_TAG "lights"
+
 #include <cutils/log.h>
 #include <cutils/properties.h>
 #include <stdint.h>
@@ -111,9 +115,11 @@ set_light_backlight(struct light_device_t* dev,
 {
     int err = 0;
     int brightness = rgb_to_brightness(state);
+
     pthread_mutex_lock(&g_lock);
     err = write_int(LCD_FILE, brightness);
     pthread_mutex_unlock(&g_lock);
+
     return err;
 }
 
@@ -152,6 +158,10 @@ set_notification_led_locked(struct light_device_t* dev,
     ALOGV("%s: red %d green %d blue %d onMS %d offMS %d",
             __func__, red, green, blue, onMS, offMS);
 
+    write_int(RED_LED_FILE, red);
+    write_int(GREEN_LED_FILE, green);
+    write_int(BLUE_LED_FILE, blue);
+
     if (blink) {
         if (red)
             write_int(RED_BLINK_FILE, blink);
@@ -159,10 +169,6 @@ set_notification_led_locked(struct light_device_t* dev,
             write_int(GREEN_BLINK_FILE, blink);
         if (blue)
             write_int(BLUE_BLINK_FILE, blink);
-    } else {
-        write_int(RED_LED_FILE, red);
-        write_int(GREEN_LED_FILE, green);
-        write_int(BLUE_LED_FILE, blue);
     }
 
     return 0;
@@ -229,8 +235,6 @@ close_lights(struct light_device_t *dev)
     return 0;
 }
 
-/******************************************************************************/
-
 /**
  * module methods
  */
@@ -281,7 +285,7 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_major = 1,
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
-    .name = "Armani lights Module",
+    .name = "armani lights module",
     .author = "Google, Inc., CyanogenMod",
     .methods = &lights_module_methods,
 };
