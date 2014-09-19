@@ -69,3 +69,6 @@ ro.gps.agps_provider=1
 ro.cwm.enable_key_repeat=true
 ro.cwm.forbid_mount=/firmware,/persist
 ro.cwm.forbid_format=/boot,/firmware,/persist
+
+# Wifi
+wifi.interface=wlan0
