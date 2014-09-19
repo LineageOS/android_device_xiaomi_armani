@@ -49,8 +49,14 @@ char const*const BLUE_LED_FILE
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
-char const*const LED_BLINK_FILE
+char const*const RED_BLINK_FILE
         = "/sys/class/leds/red/blink";
+
+char const*const GREEN_BLINK_FILE
+        = "/sys/class/leds/green/blink";
+
+char const*const BLUE_BLINK_FILE
+        = "/sys/class/leds/blue/blink";
 
 /**
  * device methods
@@ -146,11 +152,18 @@ set_notification_led_locked(struct light_device_t* dev,
     ALOGV("%s: red %d green %d blue %d onMS %d offMS %d",
             __func__, red, green, blue, onMS, offMS);
 
-    write_int(RED_LED_FILE, red);
-    write_int(GREEN_LED_FILE, green);
-    write_int(BLUE_LED_FILE, blue);
-
-    write_int(LED_BLINK_FILE, blink);
+    if (blink) {
+        if (red)
+            write_int(RED_BLINK_FILE, blink);
+        if (green)
+            write_int(GREEN_BLINK_FILE, blink);
+        if (blue)
+            write_int(BLUE_BLINK_FILE, blink);
+    } else {
+        write_int(RED_LED_FILE, red);
+        write_int(GREEN_LED_FILE, green);
+        write_int(BLUE_LED_FILE, blue);
+    }
 
     return 0;
 }
@@ -257,7 +270,7 @@ static int open_lights(const struct hw_module_t* module, char const* name,
 }
 
 static struct hw_module_methods_t lights_module_methods = {
-    .open =  open_lights,
+    .open = open_lights,
 };
 
 /*
@@ -268,7 +281,7 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_major = 1,
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
-    .name = "armani lights module",
-    .author = "Google, Inc., AOKP, CyanogenMod",
+    .name = "Armani lights Module",
+    .author = "Google, Inc., CyanogenMod",
     .methods = &lights_module_methods,
 };
