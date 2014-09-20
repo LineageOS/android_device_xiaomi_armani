@@ -25,7 +25,6 @@ persist.radio.multisim.config=dsds
 
 # Data modules
 ro.use_data_netmgrd=true
-persist.data.netmgrd.qos.enable=true
 
 # Display
 ro.opengles.version=196608
