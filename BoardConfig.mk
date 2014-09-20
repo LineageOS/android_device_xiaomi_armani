@@ -124,7 +124,7 @@ BOARD_HAVE_QCOM_FM := true
 BOARD_USES_QC_TIME_SERVICES := true
 
 # Power
-TARGET_POWERHAL_VARIANT := cm
+TARGET_POWERHAL_VARIANT := qcom
 
 # Enable suspend during charger mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
