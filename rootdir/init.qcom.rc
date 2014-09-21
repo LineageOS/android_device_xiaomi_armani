@@ -234,6 +234,13 @@ on post-fs-data
     # Create /data/time folder for time-services
     mkdir /data/time/ 0700 system system
 
+    # AKM setting data
+    mkdir /data/misc/sensors
+    chmod 775 /data/misc/sensors
+
+    mkdir /persist/misc/sensors
+    chmod 775 /persist/misc/sensors
+
     mkdir /data/audio/ 0770 media audio
 
     setprop vold.post_fs_data_done 1
