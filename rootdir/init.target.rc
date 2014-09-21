@@ -52,12 +52,8 @@ on fs
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
-    chmod 777 /data/qmi-framework-tests/qmi_xiaomi_id_test
 
-# Import cne init file
 on post-fs
-    export LD_PRELOAD /vendor/lib/libNimsWrap.so
-
     chown system system /dev/sysmatdrv
     chmod 0660 /dev/sysmatdrv
 
@@ -76,10 +72,6 @@ on boot
     chown system system /sys/class/input/input4/enabled
     chown system system /sys/class/input/input5/enabled
     chown system system /sys/class/input/input6/enabled
-
-# Start the qcom-system-daemon service
-service qcomsysd /system/bin/qcom-system-daemon
-    class main
 
 # Start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
@@ -152,29 +144,6 @@ service imsdatadaemon /system/bin/imsdatadaemon
     group system wifi radio net_raw log qcom_diag net_admin
     disabled
 
-service immvibed /system/bin/immvibed
-    class late_start
-    user system
-    group system
-    oneshot
-
-service sysmatsir /system/bin/smonsir
-    user root
-    group root
-    oneshot
-    disabled
-
-service sysmatpro /system/bin/smprosrv
-    user root
-    group root
-    oneshot
-    disabled
-
-on property:persist.sys.matsir.enable=1
-    setprop sys.sysmat.service.control start
-    start sysmatsir
-    start sysmatpro
-
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
@@ -192,24 +161,6 @@ service wcnss-service /system/bin/wcnss_service
    user root
    group system wifi
    oneshot
-
-on property:persist.sys.display_prefer=0
-    write /sys/devices/virtual/graphics/fb0/msm_fb_dispparam 2
-
-on property:persist.sys.display_prefer=1
-    write /sys/devices/virtual/graphics/fb0/msm_fb_dispparam 1
-
-on property:persist.sys.display_prefer=2
-    write /sys/devices/virtual/graphics/fb0/msm_fb_dispparam 2
-
-on property:persist.sys.display_prefer=3
-    write /sys/devices/virtual/graphics/fb0/msm_fb_dispparam 3
-
-on property:persist.sys.display_ce=10
-    write /sys/devices/virtual/graphics/fb0/msm_fb_dispparam 240
-
-on property:persist.sys.display_ce=11
-    write /sys/devices/virtual/graphics/fb0/msm_fb_dispparam 16
 
 # Enable the post processing daemon which controls all the post processing features
 service ppd /system/bin/mm-pp-daemon
