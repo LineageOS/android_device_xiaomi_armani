@@ -69,7 +69,6 @@ on early-boot
     # Allow subsystem (modem etc) debugging
     write /sys/module/subsystem_restart/parameters/enable_debug ${persist.sys.ssr.enable_debug}
     write /sys/kernel/boot_adsp/boot 1
-    exec /system/bin/sh /init.qcom.early_boot.sh ${ro.board.platform}
     exec /system/bin/sh /init.qcom.syspart_fixup.sh ${ro.board.platform} ${ro.serialno}
 
 on boot
@@ -272,11 +271,6 @@ on property:bluetooth.dun.status=stopped
 
 on property:ro.bluetooth.ftm_enabled=true
     start ftmd
-
-service qcom-c_core-sh /system/bin/sh /init.qcom.class_core.sh
-    class core
-    user root
-    oneshot
 
 service qcom-c_main-sh /system/bin/sh /init.class_main.sh
     class main
@@ -634,14 +628,6 @@ service fastmmi /system/bin/mmi
     user root
     group root
     disabled
-
-service fastmmisrv /system/bin/sh /init.qcom.factory.sh
-    user root
-    disabled
-    oneshot
-
-on ffbm
-    start fastmmisrv
 
 service hvdcp /system/bin/hvdcp
     class core
