@@ -182,7 +182,10 @@ PRODUCT_PACKAGES += \
     libQWiFiSoftApCfg \
     wcnss_service
 
-# Default props
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15
+
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
