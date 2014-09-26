@@ -6,6 +6,7 @@ type netmgrd_exec, exec_type, file_type;
 init_daemon_domain(netmgrd)
 
 allow netmgrd self:udp_socket { create ioctl };
+
 # fsetid, dac_override unlink on /dev/socket/qmux_radio/qmux_client_socket
 allow netmgrd self:capability { sys_module fsetid setuid setgid net_admin net_raw dac_override };
 allow netmgrd self:packet_socket { write bind read create };
@@ -24,6 +25,7 @@ allow netmgrd system_file:file { execute_no_trans };
 
 # Talk to init over the property socket
 unix_socket_connect(netmgrd, property, init)
+
 # Set net.rmnet_usb0. values
 allow netmgrd radio_prop:property_service set;
 

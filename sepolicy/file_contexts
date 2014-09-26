@@ -52,10 +52,10 @@
 /dev/kgsl-.*                   u:object_r:kgsl_device:s0
 
 # Sockets
-/dev/socket/qmux_audio(/.*)?   u:object_r:qmuxd_socket:s0
-/dev/socket/qmux_bluetooth(/.*)? u:object_r:qmuxd_socket:s0
-/dev/socket/qmux_gps(/.*)?     u:object_r:qmuxd_socket:s0
-/dev/socket/qmux_radio(/.*)?   u:object_r:qmuxd_socket:s0
+/dev/socket/qmux_audio/*       u:object_r:qmux_audio_socket:s0
+/dev/socket/qmux_bluetooth/*   u:object_r:qmux_bluetooth_socket:s0
+/dev/socket/qmux_gps/*         u:object_r:qmux_gps_socket:s0
+/dev/socket/qmux_radio/*       u:object_r:qmux_radio_socket:s0
 /dev/socket/mpdecision(/.*)?   u:object_r:mpdecision_socket:s0
 
 # Block labeling
@@ -86,7 +86,3 @@
 /persist/WCNSS_qcom_wlan_nv.bin u:object_r:persist_wifi_file:s0
 /persist/WCNSS_qcom_wlan_nv_calibration_persist.bin u:object_r:persist_wifi_file:s0
 /persist/WCNSS_qcom_wlan_nv_regulatory_persist.bin u:object_r:persist_wifi_file:s0
-
-# PDS partition
-/pds(/.*)?                     u:object_r:pds_file:s0
-/pds/camera(/.*)?              u:object_r:camera_data_file:s0

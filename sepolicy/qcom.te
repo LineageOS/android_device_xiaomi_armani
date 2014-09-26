@@ -30,14 +30,6 @@ allow init_shell system_data_file:dir setattr;
 allow init_shell tmpfs:file execute;
 allow init_shell wifi_data_file:file { read getattr open };
 
-# pds backup and restorecon
-allow shell camera_data_file:dir getattr;
-allow shell pds_file:dir { read search open getattr };
-allow shell pds_file:file getattr;
-allow init_shell pds_file:file { read open };
-allow init_shell pds_file:dir getattr;
-allow pds_file rootfs:filesystem associate;
-
 allow init_shell block_device:blk_file { read open };
 allow init_shell device:chr_file { getattr setattr write open };
 allow init_shell device:dir { write read open add_name };

@@ -5,6 +5,10 @@ allow system wpa_socket:unix_dgram_socket sendto;
 
 qmux_socket(system)
 
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets to system apps
+allow system qmux_radio_socket:sock_file create_file_perms;
+allow system qmux_radio_socket:dir rw_dir_perms;
+
 # PowerManagerService
 unix_socket_connect(system, sensors, sensors)
 allow system sensors_socket:sock_file read;
@@ -22,6 +26,8 @@ allow system adbd_socket:sock_file write;
 allow system_app cache_file:file { write lock open setattr };
 allow system sdcard_internal:dir search;
 allow system sdcard_internal:file { read open };
+allow system sdcard_external:dir search;
+allow system sdcard_external:file { read open };
 allow system init_shell:binder call;
 allow system sysfs_writable:file { write open };
 allow system device:chr_file { read ioctl open };
