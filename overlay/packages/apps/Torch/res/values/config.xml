@@ -18,9 +18,6 @@
 -->
 
 <resources>
-    <!-- Full path to the sysfs toggle -->
-    <string name="flashDevice">/sys/class/leds/led:flash_torch/brightness</string>
-
-    <!-- Highest setting, leave -1 if it doesn't exist -->
-    <integer name="valueDeathRay">200</integer>
+    <!-- If there is no sysfs-based control mechanism, enable this -->
+    <bool name="useCameraInterface">true</bool>
 </resources>
