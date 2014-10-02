@@ -232,12 +232,7 @@ on post-fs-data
     mkdir /persist/misc/sensors
     chmod 775 /persist/misc/sensors
 
-    mkdir /data/audio/ 0770 media audio
-
     setprop vold.post_fs_data_done 1
-
-    # Create a folder for SRS to be able to create a usercfg file
-    mkdir /data/data/media 0770 media media
 
     # Set the CPU Freq Sampling rates
     write /sys/module/msm_thermal/core_control/enabled 0
@@ -270,14 +265,8 @@ on post-fs-data
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
-on property:bluetooth.isEnabled=true
-    write /sys/class/bluetooth/hci0/idle_timeout 7000
-
 on property:vold.decrypt=trigger_restart_framework
     start config_bluetooth
-
-on property:persist.env.fastdorm.enabled=true
-    setprop persist.radio.data_no_toggle 1
 
 service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
     class main
@@ -289,15 +278,13 @@ service rmt_storage /system/bin/rmt_storage
     user root
     disabled
 
-on property:ro.boot.emmc=true
-    start rmt_storage
-
 service rfs_access /system/bin/rfs_access
     class core
     user system
     group system net_raw
 
 on property:ro.boot.emmc=true
+    start rmt_storage
     start rfs_access
 
 service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
