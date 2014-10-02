@@ -235,25 +235,10 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
     # Set the CPU Freq Sampling rates
-    write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
 
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
-    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
-    write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor 2
-    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential 10
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_multi_core 70
-    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential_multi_core 3
-    write /sys/devices/system/cpu/cpufreq/ondemand/optimal_freq 300000
-    write /sys/devices/system/cpu/cpufreq/ondemand/sync_freq 300000
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load 80
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
-
-    write /sys/module/msm_thermal/core_control/enabled 1
     chown system system /sys/devices/system/cpu/cpu1/online
     chown system system /sys/devices/system/cpu/cpu2/online
     chown system system /sys/devices/system/cpu/cpu3/online
@@ -508,25 +493,41 @@ on property:persist.usb.hvdcp.detect=false
 
 # Powersave
 on property:sys.perf.profile=0
-    start mpdecision
+    stop mpdecision
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor powersave
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor powersave
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor powersave
     write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
+    start mpdecision
 
 # Balanced
 on property:sys.perf.profile=1
-    start mpdecision
+    stop mpdecision
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor ondemand
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor ondemand    
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
+    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
+    write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 1
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor 2
+    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential 10
+    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_multi_core 70
+    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential_multi_core 3
+    write /sys/devices/system/cpu/cpufreq/ondemand/optimal_freq 300000
+    write /sys/devices/system/cpu/cpufreq/ondemand/sync_freq 300000
+    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load 80
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1401600
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1401600
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1401600
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1401600
     write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
+    start mpdecision
 
 # Performance
 on property:sys.perf.profile=2
