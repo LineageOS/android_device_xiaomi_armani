@@ -4,11 +4,11 @@ rild.libpath=/vendor/lib/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
 persist.sys.ssr.restart_level=3
 ril.subscription.types=RUIM
-DEVICE_PROVISIONED=1
 persist.radio.msgtunnel.start=false
 persist.radio.apm_sim_not_pwdn=1
 persist.radio.dont_use_dsd=true
 ro.telephony.call_ring.multiple=false
+telephony.lteOnCdmaDevice=0
 
 # NITZ
 persist.rild.nitz_plmn=
@@ -64,6 +64,7 @@ audio.offload.buffer.size.kb=32
 audio.offload.gapless.enabled=false
 audio.offload.multiple.enabled=false
 audio.offload.pcm.enable=true
+audio.offload.disable=1
 av.offload.enable=false
 av.streaming.offload.enable=false
 mm.enable.smoothstreaming=true
@@ -87,6 +88,7 @@ tunnel.audio.encode=true
 ro.qualcomm.cabl=1
 ro.qualcomm.svi=1
 ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+qcom.hw.aac.encoder=true
 
 # Property to enable user to access Google WFD settings
 persist.debug.wfd.enable=1
