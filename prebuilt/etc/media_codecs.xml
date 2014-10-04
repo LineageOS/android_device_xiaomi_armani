@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2013, The Linux Foundation. All rights reserved.
-     Not a contribution.
-
-     Copyright (C) 2012 The Android Open Source Project
+<!-- Copyright (C) 2013 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,7 +13,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<CodecList>
+<!--
+     Copyright (c) 2013, The Linux Foundation. All rights reserved.
+     Not a Contribution, Apache license notifications and license are retained
+     for attribution purposes only.
+-->
+<MediaCodecs>
     <Encoders>
         <!-- Audio Hardware  -->
         <MediaCodec name="OMX.google.aac.encoder" type="audio/mp4a-latm" />
@@ -91,6 +93,7 @@
         <MediaCodec name="OMX.qcom.audio.decoder.evrc" type="audio/evrc" >
             <Quirk name="requires-global-flush" />
         </MediaCodec>
+
         <!-- Video Hardware  -->
         <MediaCodec name="OMX.qcom.video.decoder.avc" type="video/avc" >
             <Quirk name="requires-allocate-on-input-ports" />
@@ -134,11 +137,11 @@
         </MediaCodec>
 
         <!-- Video Software  -->
+        <MediaCodec name="OMX.google.vp8.decoder" type="video/x-vnd.on2.vp8" />
+        <MediaCodec name="OMX.google.vp9.decoder" type="video/x-vnd.on2.vp9" />
         <MediaCodec name="OMX.google.h264.decoder" type="video/avc" />
         <MediaCodec name="OMX.google.mpeg4.decoder" type="video/mp4v-es" />
         <MediaCodec name="OMX.google.h263.decoder" type="video/3gpp" />
-        <MediaCodec name="OMX.google.vp8.decoder" type="video/x-vnd.on2.vp8" />
-        <MediaCodec name="OMX.google.vp9.decoder" type="video/x-vnd.on2.vp9" />
 
         <!-- ffmpeg audio codecs -->
         <MediaCodec name="OMX.ffmpeg.ra.decoder" type="audio/vnd.rn-realaudio"/>
@@ -159,4 +162,4 @@
         <MediaCodec name="OMX.ffmpeg.hevc.decoder" type="video/hevc"/>
         <MediaCodec name="OMX.ffmpeg.vtrial.decoder" type="video/ffmpeg"/>
     </Decoders>
-</CodecList>
+</MediaCodecs>
