@@ -166,17 +166,6 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    hostapd.accept \
-    hostapd.deny \
-    hostapd_default.conf \
-    p2p_supplicant_overlay.conf \
-    wpa_supplicant_overlay.conf \
-    wpa_supplicant_wcn.conf \
-    WCNSS_cfg.dat \
-    WCNSS_qcom_cfg.ini \
-    WCNSS_qcom_wlan_nv.bin
-
-PRODUCT_PACKAGES += \
     libcurl \
     libqsap_sdk \
     libQWiFiSoftApCfg \
