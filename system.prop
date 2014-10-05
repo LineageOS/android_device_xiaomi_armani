@@ -58,6 +58,9 @@ mm.enable.qcom_parser=37491
 # Time services
 persist.timed.enable=true
 
+# Property to turn on hfp client
+bluetooth.hfp.client=1
+
 # Audio
 ro.qc.sdk.audio.ssr=false
 ro.qc.sdk.audio.fluencetype=fluence
