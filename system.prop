@@ -77,8 +77,7 @@ use.voice.path.for.pcm.voip=true
 tunnel.audio.encode=true
 
 # Qualcomm
-ro.qualcomm.cabl=1
-ro.qualcomm.svi=1
+ro.qualcomm.cabl=0
 ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 
 # Property to enable user to access Google WFD settings
