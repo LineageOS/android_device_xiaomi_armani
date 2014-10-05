@@ -4,11 +4,11 @@ rild.libpath=/vendor/lib/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
 persist.sys.ssr.restart_level=3
 ril.subscription.types=RUIM
-persist.radio.msgtunnel.start=false
 persist.radio.apm_sim_not_pwdn=1
 persist.radio.dont_use_dsd=true
+persist.radio.msgtunnel.start=false
+persist.radio.multisim.config=dsds
 ro.telephony.call_ring.multiple=false
-telephony.lteOnCdmaDevice=0
 
 # NITZ
 persist.rild.nitz_plmn=
@@ -20,9 +20,6 @@ persist.rild.nitz_short_ons_0=
 persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
-
-# Enable DSDS
-persist.radio.multisim.config=dsds
 
 # Open market handset
 persist.omh.enabled=true
@@ -40,9 +37,12 @@ debug.egl.hw=1
 debug.composition.type=c2d
 persist.hwc.mdpcomp.enable=true
 debug.mdpcomp.logs=0
-debug.mdpcomp.bw=1.66
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
+
+persist.demo.hdmirotationlock=false
+ro.hdmi.enable=true
+qcom.hw.aac.encoder=true
 
 # Media
 media.stagefright.enable-player=true
@@ -59,28 +59,17 @@ mm.enable.qcom_parser=37491
 persist.timed.enable=true
 
 # Audio
-audio.offload.24bit.enable=false
-audio.offload.buffer.size.kb=32
-audio.offload.gapless.enabled=false
-audio.offload.multiple.enabled=false
-audio.offload.pcm.enable=true
-audio.offload.disable=1
-av.offload.enable=false
-av.streaming.offload.enable=false
-mm.enable.smoothstreaming=true
-persist.audio.calfile0=/etc/Bluetooth_cal.acdb
-persist.audio.calfile1=/etc/General_cal.acdb
-persist.audio.calfile2=/etc/Global_cal.acdb
-persist.audio.calfile3=/etc/Handset_cal.acdb
-persist.audio.calfile4=/etc/Hdmi_cal.acdb
-persist.audio.calfile5=/etc/Headset_cal.acdb
-persist.audio.calfile6=/etc/Speaker_cal.acdb
+ro.qc.sdk.audio.ssr=false
+ro.qc.sdk.audio.fluencetype=fluence
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
-ro.qc.sdk.audio.fluencetype=fluence
-ro.qc.sdk.audio.ssr=false
-use.dedicated.device.for.voip=true
+af.resampler.quality=4
+audio.offload.buffer.size.kb=32
+audio.offload.gapless.enabled=true
+audio.offload.pcm.enable=true
+audio.offload.disable=1
+av.offload.enable=true
 use.voice.path.for.pcm.voip=true
 tunnel.audio.encode=true
 
@@ -88,7 +77,6 @@ tunnel.audio.encode=true
 ro.qualcomm.cabl=1
 ro.qualcomm.svi=1
 ro.vendor.extension_library=/vendor/lib/libqc-opt.so
-qcom.hw.aac.encoder=true
 
 # Property to enable user to access Google WFD settings
 persist.debug.wfd.enable=1
