@@ -103,7 +103,15 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.map true
         setprop ro.qualcomm.bluetooth.nap true
         setprop ro.bluetooth.sap true
-        setprop ro.bluetooth.dun false
+        case $target in
+          "apq8084")
+              setprop ro.bluetooth.dun true
+              logi "Enabling BT-DUN for APQ8084"
+              ;;
+          *)
+              setprop ro.bluetooth.dun false
+              ;;
+        esac
         ;;
     "msm")
         setprop ro.qualcomm.bluetooth.opp true
@@ -113,7 +121,7 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.ftp true
         setprop ro.qualcomm.bluetooth.nap true
         setprop ro.bluetooth.sap true
-        setprop ro.bluetooth.dun false
+        setprop ro.bluetooth.dun true
         case $btsoc in
           "ath3k")
               setprop ro.qualcomm.bluetooth.map false
@@ -132,7 +140,7 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.map true
         setprop ro.qualcomm.bluetooth.nap true
         setprop ro.bluetooth.sap true
-        setprop ro.bluetooth.dun false
+        setprop ro.bluetooth.dun true
         ;;
   esac
 
@@ -152,10 +160,13 @@ config_bt ()
            setprop ro.qualcomm.bt.hci_transport smd
        fi
        ;;
-    "apq8084")
-       if ["$btsoc" != "rome"]
+    "apq8084" | "mpq8092" )
+       if [ "$btsoc" != "rome" ]
        then
            setprop ro.qualcomm.bt.hci_transport smd
+       elif [ "$btsoc" = "rome" ]
+       then
+           setprop ro.bluetooth.hfp.ver 1.6
        fi
        ;;
     *)
@@ -258,8 +269,8 @@ case $POWER_CLASS in
      logi "Power Class: 2";;
   3) PWR_CLASS="-p 2" ;
      logi "Power Class: CUSTOM";;
-  *) PWR_CLASS="-p 1";
-     logi "Power Class: Ignored. Default(2) used (1-CLASS1/2-CLASS2/3-CUSTOM)";
+  *) PWR_CLASS="";
+     logi "Power Class: Ignored. Default(1) used (1-CLASS1/2-CLASS2/3-CUSTOM)";
      logi "Power Class: To override, Before turning BT ON; setprop qcom.bt.dev_power_class <1 or 2 or 3>";;
 esac
 
