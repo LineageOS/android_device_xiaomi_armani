@@ -88,6 +88,11 @@ TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
+TARGET_USES_OVERLAY := true
+TARGET_USES_SF_BYPASS := true
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+TARGET_DISPLAY_INSECURE_MM_HEAP := true
+
 # Shader cache config options
 # Maximum size of the GLES Shaders that can be cached for reuse.
 # Increase the size if shaders of size greater than 12KB are used.
