@@ -68,7 +68,11 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8226
+    gps.msm8226 \
+    libgps.utils \
+    libloc_adapter \
+    libloc_api_v02 \
+    libloc_eng
 
 # Display
 PRODUCT_PACKAGES += \
