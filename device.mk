@@ -16,9 +16,6 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Temporary workaround
-$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr/include)
-
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -48,11 +45,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
-
-# Kernel
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/kernel:kernel \
-    $(LOCAL_PATH)/dt.img:dt.img
     
 # Prebuilt
 PRODUCT_COPY_FILES += \
