@@ -80,11 +80,9 @@ tunnel.audio.encode=true
 ro.qualcomm.cabl=0
 ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 
-# Property to enable user to access Google WFD settings
+# WFD
 persist.debug.wfd.enable=1
-# Property to choose between virtual/external wfd display
 persist.sys.wfd.virtual=0
-# Property to check if downscale is disabled for external/virtual display
 persist.sys.downscale.disable=1
 
 # GPS
@@ -93,8 +91,3 @@ ro.qc.sdk.izat.premium_enabled=1
 ro.qc.sdk.izat.service_mask=0x0
 persist.gps.qc_nlp_in_use=0
 persist.loc.nlp_name=com.qualcomm.services.location
-
-# Recovery
-ro.cwm.enable_key_repeat=true
-ro.cwm.forbid_mount=/firmware,/persist
-ro.cwm.forbid_format=/fsg,/firmware,/boot,/persist
