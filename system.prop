@@ -54,6 +54,7 @@ media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 mm.enable.smoothstreaming=true
 mm.enable.qcom_parser=37491
+mm.enable.vsync.render=1
 
 # Time services
 persist.timed.enable=true
@@ -83,7 +84,6 @@ ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 # WFD
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
-persist.sys.downscale.disable=1
 
 # GPS
 ro.gps.agps_provider=1
