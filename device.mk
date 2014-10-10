@@ -169,25 +169,24 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     power.msm8226
 
-# Prebuilt
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    $(LOCAL_PATH)/configs/init.qcom.fm.sh:system/etc/init.qcom.fm.sh
-
 # QRNG
 PRODUCT_PACKAGES += \
     qrngd \
     qrngp
 
 # Ramdisk
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/chargeonlymode:root/sbin/chargeonlymode \
-    $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/init.armani.usb.rc:root/init.armani.usb.rc \
-    $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
-    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
-    $(LOCAL_PATH)/rootdir/init.wifi_fixup.sh:root/init.wifi_fixup.sh \
-    $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc
+PRODUCT_PACKAGES += \
+    init.qcom.bt.sh \
+    init.qcom.fm.sh
+
+PRODUCT_PACKAGES += \
+    chargeonlymode \
+    fstab.qcom \
+    init.armani.usb.rc \
+    init.qcom.rc \
+    init.target.rc \
+    init.wifi_fixup.sh \
+    ueventd.qcom.rc
 
 # Recovery
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -196,8 +195,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.forbid_format=/fsg,/firmware,/boot,/persist
 
 # Thermal
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
+PRODUCT_PACKAGES += \
+    thermal-engine-8226.conf
 
 # Torch
 PRODUCT_PACKAGES += \
