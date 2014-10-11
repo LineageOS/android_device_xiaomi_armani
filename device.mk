@@ -95,7 +95,6 @@ PRODUCT_PACKAGES += \
     gps.msm8226 \
     libgps.utils \
     libloc_adapter \
-    libloc_api_v02 \
     libloc_eng
 
 PRODUCT_COPY_FILES += \
