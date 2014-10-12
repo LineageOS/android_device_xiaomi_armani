@@ -50,6 +50,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
 
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    bluetooth.hfp.client=1
+
 # Camera
 PRODUCT_PACKAGES += \
     libxml2
@@ -95,6 +99,10 @@ PRODUCT_PACKAGES += \
     libgps.utils \
     libloc_adapter \
     libloc_eng
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.gps.agps_provider=1 \
+    persist.gps.qc_nlp_in_use=0
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
@@ -172,6 +180,13 @@ PRODUCT_PACKAGES += \
     qrngd \
     qrngp
 
+# Qualcomm
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.timed.enable=true \
+    qcom.hw.aac.encoder=true \
+    ro.qualcomm.cabl=0 \
+    ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh \
@@ -225,4 +240,6 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.enable=1 \
+    persist.sys.wfd.virtual=0 \
     wifi.interface=wlan0

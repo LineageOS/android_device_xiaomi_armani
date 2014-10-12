@@ -41,7 +41,6 @@ dev.pm.dyn_samplingrate=1
 
 persist.demo.hdmirotationlock=false
 ro.hdmi.enable=true
-qcom.hw.aac.encoder=true
 
 # Media
 media.stagefright.enable-player=true
@@ -54,12 +53,6 @@ mmp.enable.3g2=true
 mm.enable.smoothstreaming=true
 mm.enable.qcom_parser=37491
 mm.enable.vsync.render=1
-
-# Time services
-persist.timed.enable=true
-
-# Property to turn on hfp client
-bluetooth.hfp.client=1
 
 # Audio
 ro.qc.sdk.audio.ssr=false
@@ -75,15 +68,3 @@ audio.offload.disable=1
 av.offload.enable=true
 use.voice.path.for.pcm.voip=true
 tunnel.audio.encode=true
-
-# Qualcomm
-ro.qualcomm.cabl=0
-ro.vendor.extension_library=/vendor/lib/libqc-opt.so
-
-# WFD
-persist.debug.wfd.enable=1
-persist.sys.wfd.virtual=0
-
-# GPS
-ro.gps.agps_provider=1
-persist.gps.qc_nlp_in_use=0
