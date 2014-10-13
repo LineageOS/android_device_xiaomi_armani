@@ -242,4 +242,5 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
+    persist.sys.ssr.restart_level=3 \
     wifi.interface=wlan0

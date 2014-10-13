@@ -1,59 +1,4 @@
 
-# Telephony
-rild.libpath=/vendor/lib/libril-qc-qmi-1.so
-rild.libargs=-d /dev/smd0
-persist.sys.ssr.restart_level=3
-ril.subscription.types=RUIM
-persist.radio.apm_sim_not_pwdn=1
-persist.radio.dont_use_dsd=true
-persist.radio.msgtunnel.start=false
-persist.radio.multisim.config=dsds
-ro.telephony.call_ring.multiple=false
-
-# NITZ
-persist.rild.nitz_plmn=
-persist.rild.nitz_long_ons_0=
-persist.rild.nitz_long_ons_1=
-persist.rild.nitz_long_ons_2=
-persist.rild.nitz_long_ons_3=
-persist.rild.nitz_short_ons_0=
-persist.rild.nitz_short_ons_1=
-persist.rild.nitz_short_ons_2=
-persist.rild.nitz_short_ons_3=
-
-# Open market handset
-persist.omh.enabled=true
-
-# Data modules
-ro.use_data_netmgrd=true
-persist.data.netmgrd.qos.enable=false
-
-# Display
-ro.opengles.version=196608
-ro.sf.lcd_density=320
-debug.sf.fb_always_on=1
-debug.sf.hw=1
-debug.egl.hw=1
-debug.composition.type=c2d
-persist.hwc.mdpcomp.enable=true
-debug.mdpcomp.logs=0
-dev.pm.dyn_samplingrate=1
-
-persist.demo.hdmirotationlock=false
-ro.hdmi.enable=true
-
-# Media
-media.stagefright.enable-player=true
-media.stagefright.enable-http=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-scan=true
-mmp.enable.3g2=true
-mm.enable.smoothstreaming=true
-mm.enable.qcom_parser=37491
-mm.enable.vsync.render=1
-
 # Audio
 ro.qc.sdk.audio.ssr=false
 ro.qc.sdk.audio.fluencetype=fluence
@@ -68,3 +13,37 @@ audio.offload.disable=1
 av.offload.enable=true
 use.voice.path.for.pcm.voip=true
 tunnel.audio.encode=true
+
+# Display
+ro.opengles.version=196608
+ro.sf.lcd_density=320
+debug.sf.fb_always_on=1
+debug.sf.hw=1
+debug.egl.hw=1
+debug.composition.type=c2d
+persist.hwc.mdpcomp.enable=true
+debug.mdpcomp.logs=0
+dev.pm.dyn_samplingrate=1
+
+# Media
+media.stagefright.enable-player=true
+media.stagefright.enable-http=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-scan=true
+mmp.enable.3g2=true
+mm.enable.smoothstreaming=true
+mm.enable.qcom_parser=37491
+mm.enable.vsync.render=1
+
+# Telephony
+rild.libpath=/vendor/lib/libril-qc-qmi-1.so
+rild.libargs=-d /dev/smd0
+ril.subscription.types=RUIM
+persist.omh.enabled=true
+persist.radio.apm_sim_not_pwdn=1
+persist.radio.dont_use_dsd=true
+persist.radio.msgtunnel.start=false
+persist.radio.multisim.config=dsds
+ro.telephony.call_ring.multiple=false
