@@ -157,11 +157,6 @@
     <ctl name="Incall_Music Audio Mixer MultiMedia2" value="0" />
     <ctl name="Incall_Music_2 Audio Mixer MultiMedia9" value="0" />
 
-    <!-- afe-proxy -->
-    <ctl name="AFE_PCM_RX Audio Mixer MultiMedia2" value="0" />
-    <!-- afe-proxy end-->
-    <ctl name="AFE_PCM_RX Port Mixer INTERNAL_FM_TX" value="0" />
-
     <!-- BT SCO WB Sample Rate -->
     <path name="bt-sco-wb-samplerate">
         <ctl name="Internal BTSCO SampleRate" value="16000" />
