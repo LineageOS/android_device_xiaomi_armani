@@ -157,13 +157,6 @@
          The default is false. -->
     <bool name="config_lidControlsSleep">true</bool>
 
-    <!-- Indicate whether to allow the device to suspend when the screen is off
-         due to the proximity sensor.  This resource should only be set to true
-         if the sensor HAL correctly handles the proximity sensor as a wake-up source.
-         Otherwise, the device may fail to wake out of suspend reliably.
-         The default is false. -->
-    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
-
     <!-- Device supports LED flashlight -->
     <bool name="config_enableTorch">true</bool>
 
@@ -206,4 +199,5 @@
          NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)
     -->
     <bool name="config_proximityCheckOnWake">true</bool>
+    <integer name="config_proximityCheckTimeout">400</integer>
 </resources>
