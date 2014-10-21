@@ -195,7 +195,6 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.armani.usb.rc \
     init.qcom.rc \
-    init.target.rc \
     init.wifi_fixup.sh \
     ueventd.qcom.rc
 
