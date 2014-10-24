@@ -48,3 +48,6 @@ persist.radio.msgtunnel.start=false
 persist.radio.multisim.config=dsds
 ro.telephony.call_ring.multiple=false
 telephony.lteOnCdmaDevice=0
+
+# OTA
+cm.updater.uri=http://ota.randomdroids.com/api
