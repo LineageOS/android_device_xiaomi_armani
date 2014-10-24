@@ -195,7 +195,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.armani.usb.rc \
     init.qcom.rc \
-    init.wifi_fixup.sh \
+    init.wifi_symlink.sh \
     ueventd.qcom.rc
 
 # Recovery

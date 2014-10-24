@@ -73,7 +73,7 @@ on early-boot
     # Allow subsystem (modem etc) debugging
     write /sys/module/subsystem_restart/parameters/enable_debug ${persist.sys.ssr.enable_debug}
     write /sys/kernel/boot_adsp/boot 1
-    exec /system/bin/sh /init.wifi_fixup.sh
+    exec /system/bin/sh /init.wifi_symlink.sh
 
 on boot
     insmod /system/lib/modules/adsprpc.ko
