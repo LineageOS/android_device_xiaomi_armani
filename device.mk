@@ -193,8 +193,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     chargeonlymode \
     fstab.qcom \
-    init.armani.usb.rc \
     init.qcom.rc \
+    init.qcom.usb.rc \
     init.wifi_symlink.sh \
     ueventd.qcom.rc
 
