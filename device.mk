@@ -205,8 +205,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.forbid_format=/fsg,/firmware,/boot,/persist
 
 # Thermal
-PRODUCT_PACKAGES += \
-    thermal-engine-8226.conf
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
 
 # Torch
 PRODUCT_PACKAGES += \
