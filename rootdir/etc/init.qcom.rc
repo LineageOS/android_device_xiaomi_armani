@@ -70,9 +70,6 @@ on fs
 on early-boot
     # Set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
-    
-    # Allow subsystem (modem etc) debugging
-    write /sys/module/subsystem_restart/parameters/enable_debug ${persist.sys.ssr.enable_debug}
 
     # Create wlan module symlink
     exec /system/bin/sh /init.wifi_symlink.sh
@@ -116,20 +113,8 @@ on boot
     # Remove SUID bit for iproute2 ip tool
     chmod 0755 /system/bin/ip
 
-    chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
-
     # For bridgemgr daemon to inform the USB driver of the correct transport
     chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
-    
-    # For setting tcp delayed ack
-    chown system system /sys/kernel/ipv4/tcp_delack_seg
-    chown system system /sys/kernel/ipv4/tcp_use_userconfig
-
-    # Define TCP delayed ack settings for WiFi
-    setprop net.tcp.delack.default     1
-    setprop net.tcp.delack.wifi        20
-    setprop net.tcp.usercfg.default    0
-    setprop net.tcp.usercfg.wifi       1
 
     # To allow interfaces to get v6 address when tethering is enabled
     write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
@@ -170,14 +155,6 @@ on post-fs-data
 
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
-
-    # Create directory used by the DASH client
-    mkdir /data/misc/dash 0770 media audio
-
-    # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
-    # We chown/chmod /persist again so because mount is run as root + defaults
-    chown system system /persist
-    chmod 0771 /persist
 
     # Create directory for hostapd
     mkdir /data/hostapd 0770 system wifi
