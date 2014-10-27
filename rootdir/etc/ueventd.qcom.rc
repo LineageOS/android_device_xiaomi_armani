@@ -58,6 +58,7 @@
 /dev/msm_rtac             0660   system     audio
 /dev/msm_wma              0660   system     audio
 /dev/msm_wmapro           0660   system     audio
+/dev/i2c-5                0660   media      media
 
 # sysfs properties
 /sys/devices/virtual/smdpkt/smdcntl*   open_timeout   0664 radio radio
@@ -69,17 +70,3 @@
 /dev/uio0                 0660   system     system
 /dev/uio1                 0660   system     system
 /dev/uio2                 0660   system     system
-
-# SSR
-/dev/ramdump_adsp         0660   radio      radio
-/dev/ramdump_modem        0660   radio      radio
-/dev/ramdump_smem         0660   radio      radio
-/dev/ramdump_venus        0660   radio      radio
-/dev/ramdump_pronto       0660   radio      radio
-
-# I2C
-/dev/i2c-0                0660   root       system
-/dev/i2c-1                0660   root       system
-/dev/i2c-2                0660   root       system
-/dev/i2c-3                0660   root       system
-/dev/i2c-5                0660   media      media

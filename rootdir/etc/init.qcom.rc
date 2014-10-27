@@ -469,6 +469,13 @@ on property:init.svc.surfaceflinger=stopped
 on property:init.svc.surfaceflinger=running
     start ppd
 
+# Allow usb charging to be disabled persistently
+on property:persist.usb.chgdisabled=1
+    write /sys/class/power_supply/battery/charging_enabled 0
+
+on property:persist.usb.chgdisabled=0
+    write /sys/class/power_supply/battery/charging_enabled 1
+
 service charger /sbin/chargeonlymode
     class charger
 
@@ -510,6 +517,10 @@ on property:sys.perf.profile=0
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor powersave
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor powersave
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor powersave
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1190400
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1190400
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1190400
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1190400
     write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
     start mpdecision
 
