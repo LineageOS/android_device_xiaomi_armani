@@ -135,9 +135,6 @@ BOARD_SEPOLICY_UNION += \
     app.te \
     file_contexts
 
-# Time services
-BOARD_USES_QC_TIME_SERVICES := true
-
 # Vold
 BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
