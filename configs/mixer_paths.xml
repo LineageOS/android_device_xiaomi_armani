@@ -575,6 +575,14 @@
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
     </path>
 
+    <path name="adc3">
+        <ctl name="AIF1_CAP Mixer SLIM TX1" value="1"/>
+        <ctl name="SLIM_0_TX Channels" value="One" />
+        <ctl name="SLIM TX1 MUX" value="DEC2" />
+        <ctl name="DEC2 MUX" value="ADC3" />
+        <ctl name="IIR1 INP1 MUX" value="DEC2" />
+    </path>
+
     <path name="dmic1">
         <ctl name="AIF1_CAP Mixer SLIM TX1" value="1"/>
         <ctl name="SLIM_0_TX Channels" value="One" />
@@ -647,7 +655,7 @@
     </path>
 
     <path name="speaker-mic">
-        <path name="adc1" />
+        <path name="adc3" />
     </path>
 
     <path name="handset">
