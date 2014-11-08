@@ -103,10 +103,6 @@ on boot
     mkdir /dev/socket/qmux_gps 0770 gps gps
     chmod 2770 /dev/socket/qmux_gps
 
-    # Define TCP buffer sizes for various networks
-    # ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
-    setprop net.tcp.buffersize.wifi 524288,2097152,4194304,262144,524288,1048576
-
     # To allow interfaces to get v6 address when tethering is enabled
     write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet1/accept_ra 2
@@ -120,9 +116,6 @@ on boot
 
 on post-fs-data
     mkdir /data/media 0770 media_rw media_rw
-
-    # Create directory for bluetooth
-    mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
     # Create the directories used by the Wireless subsystem
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -321,9 +314,6 @@ service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
 
 on property:crypto.driver.load=1
     insmod /system/lib/modules/qcedev.ko
-
-on property:crypto.driver.load=0
-    exec /system/bin/rmmod qcedev.ko
 
 service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     class late_start
