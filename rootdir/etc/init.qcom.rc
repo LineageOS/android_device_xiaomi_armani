@@ -431,17 +431,6 @@ on property:init.svc.surfaceflinger=running
 service charger /sbin/chargeonlymode
     class charger
 
-service hvdcp /system/bin/hvdcp
-    class core
-    user root
-    disabled
-
-on property:persist.usb.hvdcp.detect=true
-    start hvdcp
-
-on property:persist.usb.hvdcp.detect=false
-    stop hvdcp
-
 on property:sys.boot_completed=1
     # Enable Power modes
     write /sys/module/lpm_levels/enable_low_power/l2 4
