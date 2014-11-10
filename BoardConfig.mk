@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-# Include path
-TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/armani/include
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 TARGET_NO_BOOTLOADER := true
