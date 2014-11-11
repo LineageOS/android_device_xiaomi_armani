@@ -669,6 +669,7 @@
 
     <path name="handset-mic">
         <path name="adc1" />
+        <ctl name="ADC1 Volume" value="14" />
     </path>
 
     <path name="anc-handset">
