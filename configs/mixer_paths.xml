@@ -723,7 +723,7 @@
 
     <path name="voice-speaker">
         <path name="speaker" />
-        <ctl name="RX1 Digital Volume" value="96" />
+        <ctl name="RX1 Digital Volume" value="99" />
     </path>
 
     <path name="voice-speaker-mic">
