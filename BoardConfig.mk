@@ -114,7 +114,6 @@ TARGET_POWERHAL_VARIANT := qcom
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_USES_QCOM_BSP := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/xiaomi/armani/rootdir/etc/fstab.qcom
