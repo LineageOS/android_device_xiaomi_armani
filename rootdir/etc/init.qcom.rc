@@ -135,6 +135,7 @@ on post-fs-data
     mkdir /data/time/ 0700 system system
 
     # Create directory used by sensor subsystem
+    mkdir /data/system 0775 system system
     mkdir /data/system/sensors
     chmod 775 /data/system/sensors
     write /data/system/sensors/settings 1
