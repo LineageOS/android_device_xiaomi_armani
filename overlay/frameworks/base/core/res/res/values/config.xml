@@ -39,6 +39,7 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
+        <item>1</item>
         <item>20</item>
         <item>100</item>
         <item>200</item>
@@ -55,16 +56,17 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>6</item>
-        <item>20</item>
-        <item>50</item>
-        <item>90</item>
-        <item>100</item>
-        <item>110</item>
-        <item>140</item>
-        <item>180</item>
-        <item>220</item>
-        <item>255</item>
+        <item>6</item>   <!-- 2% -->   <!-- 0 -->
+        <item>20</item>  <!-- 7% -->   <!-- 1 -->
+        <item>40</item>  <!-- 15% -->  <!-- 20 -->
+        <item>65</item>  <!-- 25% -->  <!-- 100 -->
+        <item>90</item>  <!-- 35% -->  <!-- 200 -->
+        <item>102</item> <!-- 40% -->  <!-- 500 -->
+        <item>115</item> <!-- 45% -->  <!-- 800 -->
+        <item>140</item> <!-- 55% -->  <!-- 1000 -->
+        <item>180</item> <!-- 70% -->  <!-- 1200 -->
+        <item>218</item> <!-- 85% -->  <!-- 1800 -->
+        <item>255</item> <!-- 100% --> <!-- 2500 -->
     </integer-array>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
