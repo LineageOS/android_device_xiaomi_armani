@@ -724,6 +724,7 @@
 
     <path name="voice-speaker">
         <path name="speaker" />
+        <ctl name="SPK DRV Volume" value="8" />
         <ctl name="RX1 Digital Volume" value="99" />
     </path>
 
