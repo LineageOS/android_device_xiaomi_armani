@@ -12,7 +12,6 @@ audio.offload.pcm.enable=true
 audio.offload.disable=1
 av.offload.enable=true
 use.voice.path.for.pcm.voip=true
-tunnel.audio.encode=true
 
 # Display
 ro.opengles.version=196608
