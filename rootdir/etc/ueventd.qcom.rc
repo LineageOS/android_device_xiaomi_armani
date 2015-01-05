@@ -64,6 +64,7 @@
 /sys/devices/virtual/smdpkt/smdcntl*   open_timeout   0664 radio radio
 
 # wlan
+/dev/wcnss_ctrl           0660   system     system
 /dev/wcnss_wlan           0660   system     system
 
 # UIO devices
