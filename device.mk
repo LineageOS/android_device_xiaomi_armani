@@ -210,6 +210,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.forbid_mount=/persist,/firmware \
     ro.cwm.forbid_format=/fsg,/firmware,/boot,/persist
 
+# Sensors
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
+
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
