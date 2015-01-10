@@ -65,6 +65,7 @@ on init
 
 on fs
     mount_all ./fstab.qcom
+    restorecon /persist
     setprop ro.crypto.fuse_sdcard true
     write /sys/kernel/boot_adsp/boot 1
 
@@ -143,6 +144,7 @@ on post-fs-data
     chmod 775 /data/misc/sensors
 
     # Sensor
+    mkdir /persist/misc
     mkdir /persist/misc/sensors
     chmod 775 /persist/misc/sensors
 

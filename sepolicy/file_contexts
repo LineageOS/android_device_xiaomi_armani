@@ -1,2 +1,5 @@
 # GPU device
 /dev/kgsl-3d0       u:object_r:gpu_device:s0
+
+# Persist filesystem
+/persist(/.*)?      u:object_r:persist_file:s0
