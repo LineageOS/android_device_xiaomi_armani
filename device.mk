@@ -55,6 +55,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.hfp.client=1
 
+PRODUCT_PACKAGES += \
+    init.qcom.bt.sh
+
 # Camera
 PRODUCT_PACKAGES += \
     libxml2
@@ -93,6 +96,9 @@ PRODUCT_PACKAGES += \
     FMRecord \
     libqcomfm_jni \
     qcom.fmradio
+
+PRODUCT_PACKAGES += \
+    init.qcom.fm.sh
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -188,10 +194,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 
 # Ramdisk
-PRODUCT_PACKAGES += \
-    init.qcom.bt.sh \
-    init.qcom.fm.sh
-
 PRODUCT_PACKAGES += \
     chargeonlymode \
     fstab.qcom \
