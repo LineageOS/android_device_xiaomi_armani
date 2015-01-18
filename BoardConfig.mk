@@ -86,12 +86,13 @@ TARGET_NO_RPC := true
 
 # Graphics
 BOARD_EGL_CFG := device/xiaomi/armani/configs/egl.cfg
-TARGET_QCOM_DISPLAY_VARIANT := caf-legacy
+TARGET_QCOM_DISPLAY_VARIANT := caf-new
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 # Shader cache config options
 # Maximum size of the GLES Shaders that can be cached for reuse.
@@ -110,7 +111,7 @@ BOARD_HARDWARE_CLASS := device/xiaomi/armani/cmhw/
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Media
-TARGET_QCOM_MEDIA_VARIANT := caf-legacy
+TARGET_QCOM_MEDIA_VARIANT := caf-new
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Power
