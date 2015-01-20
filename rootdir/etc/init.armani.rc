@@ -176,7 +176,7 @@ on post-fs-data
     chmod 0664 /sys/devices/virtual/graphics/fb0/rgb
     restorecon /sys/devices/virtual/graphics/fb0/rgb
 
-service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
