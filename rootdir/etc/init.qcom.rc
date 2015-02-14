@@ -66,7 +66,6 @@ on init
 on fs
     mount_all ./fstab.qcom
     restorecon /persist
-
     setprop ro.crypto.fuse_sdcard true
     write /sys/kernel/boot_adsp/boot 1
 
@@ -93,6 +92,13 @@ on boot
     mkdir /dev/socket/qmux_gps 0770 gps gps
     chmod 2770 /dev/socket/qmux_gps
 
+    # Prevents permission denied error for telephony
+    chmod 0644 /proc/cmdline
+
+    # For setting tcp delayed ack
+    chown system system /sys/kernel/ipv4/tcp_delack_seg
+    chown system system /sys/kernel/ipv4/tcp_use_userconfig
+
     # To allow interfaces to get v6 address when tethering is enabled
     write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet1/accept_ra 2
@@ -103,6 +109,14 @@ on boot
     write /proc/sys/net/ipv6/conf/rmnet6/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet7/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet_usb0/accept_ra 2
+
+    # To prevent out of order acknowledgements from making
+    # connection tracking to treat them as not belonging to
+    # the connection they belong to.
+    # Otherwise, a weird issue happens in which some long
+    # connections on high-throughput links get dropped when
+    # an ack packet comes out of order
+    write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
 
 on post-fs-data
     mkdir /data/media 0770 media_rw media_rw
@@ -143,25 +157,25 @@ on post-fs-data
 
     # Adjust vibrator amplitude
     write /sys/class/timed_output/vibrator/amp 90
+    chown root system /sys/class/timed_output/vibrator/amp
+    chmod 0664 /sys/class/timed_output/vibrator/amp
+    restorecon /sys/class/timed_output/vibrator/amp
+
+    # Color calibration control
+    chown root system /sys/devices/platform/kcal_ctrl.0/kcal
+    chown root system /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
+    chown root system /sys/devices/platform/kcal_ctrl.0/kcal_min
+    chmod 0664 /sys/devices/platform/kcal_ctrl.0/kcal
+    chmod 0664 /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
+    chmod 0664 /sys/devices/platform/kcal_ctrl.0/kcal_min
+    restorecon /sys/devices/platform/kcal_ctrl.0/kcal
+    restorecon /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
+    restorecon /sys/devices/platform/kcal_ctrl.0/kcal_min
 
     # Chown cpu online files as needed for the Settings app
     chown system system /sys/devices/system/cpu/cpu1/online
     chown system system /sys/devices/system/cpu/cpu2/online
     chown system system /sys/devices/system/cpu/cpu3/online
-
-    # Hardware tunables
-    chown root system /sys/class/timed_output/vibrator/amp
-    chown root system /sys/devices/platform/kcal_ctrl.0/kcal
-    chown root system /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
-    chown root system /sys/devices/platform/kcal_ctrl.0/kcal_min
-    chmod 0664 /sys/class/timed_output/vibrator/amp
-    chmod 0664 /sys/devices/platform/kcal_ctrl.0/kcal
-    chmod 0664 /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
-    chmod 0664 /sys/devices/platform/kcal_ctrl.0/kcal_min
-    restorecon /sys/class/timed_output/vibrator/amp
-    restorecon /sys/devices/platform/kcal_ctrl.0/kcal
-    restorecon /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
-    restorecon /sys/devices/platform/kcal_ctrl.0/kcal_min
 
 service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
     class main
