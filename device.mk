@@ -55,6 +55,9 @@ PRODUCT_PACKAGES += \
     init.qcom.bt.sh
 
 # Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1
+
 PRODUCT_PACKAGES += \
     libxml2
 
