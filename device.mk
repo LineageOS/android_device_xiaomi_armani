@@ -49,7 +49,8 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    bluetooth.hfp.client=1
+    bluetooth.hfp.client=1 \
+    qcom.bt.dev_power_class=1
 
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh
@@ -210,9 +211,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
-# UTC date
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd_default.conf \
@@ -236,7 +234,9 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0 \
-    persist.sys.ssr.restart_level=3 \
     wifi.interface=wlan0
+
+# WFD
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.enable=1 \
+    persist.sys.wfd.virtual=0

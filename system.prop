@@ -7,7 +7,7 @@ persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
 audio.offload.buffer.size.kb=32
 audio.offload.gapless.enabled=true
-audio.offload.pcm.enable=true
+audio.offload.pcm.enable=false
 audio.offload.disable=1
 av.offload.enable=true
 use.voice.path.for.pcm.voip=true
@@ -33,7 +33,6 @@ media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 mm.enable.smoothstreaming=true
 mm.enable.qcom_parser=37491
-mm.enable.vsync.render=1
 
 # Telephony
 rild.libpath=/vendor/lib/libril-qc-qmi-1.so
@@ -45,7 +44,6 @@ persist.radio.dont_use_dsd=true
 persist.radio.msgtunnel.start=false
 persist.radio.multisim.config=dsds
 ro.telephony.call_ring.multiple=false
-telephony.lteOnCdmaDevice=0
 
 # OTA
 cm.updater.uri=http://ota.randomdroids.com/api
