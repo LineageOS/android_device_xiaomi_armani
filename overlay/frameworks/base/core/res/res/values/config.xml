@@ -174,6 +174,8 @@
         <item>255</item> <!-- 100% --> <!-- 2500 -->
     </integer-array>
 
+    <integer name="config_buttonBrightnessSettingDefault">0</integer>
+
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following keys present:
