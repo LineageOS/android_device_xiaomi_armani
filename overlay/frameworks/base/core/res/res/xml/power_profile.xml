@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <device name="Android">
     <item name="none">0</item>
-    <item name="screen.on">100</item>
+    <item name="screen.on">90</item>
     <item name="screen.full">160</item>
-    <item name="bluetooth.active">142</item>
-    <item name="bluetooth.on">0.3</item>
-    <item name="wifi.on">4</item>
-    <item name="wifi.active">120</item>
-    <item name="wifi.scan">220</item>
-    <item name="dsp.audio">88</item>
-    <item name="dsp.video">88</item>
-    <item name="gps.on">170</item>
-    <item name="radio.active">300</item>
+    <item name="bluetooth.active">25.2</item>
+    <item name="bluetooth.on">1.2</item>
+    <item name="wifi.on">3.6</item>
+    <item name="wifi.active">74</item>
+    <item name="wifi.scan">54</item>
+    <item name="dsp.audio">10.8</item>
+    <item name="dsp.video">39.6</item>
+    <item name="gps.on">70</item>
+    <item name="radio.active">250</item>
     <item name="radio.scanning">70</item>
     <array name="radio.on">
         <value>3</value>
