@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014, The CyanogenMod Project
+ * Copyright (C) 2015, The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,6 @@
 
 #define LOG_TAG "wcnss_xiaomi"
 
-#define SUCCESS 0
-#define FAILED -1
-
 #define MAC_ADDR_SIZE 6
 
 #include <cutils/log.h>
@@ -30,7 +27,7 @@ extern int qmi_nv_read_wlan_mac(unsigned char** mac);
 int wcnss_init_qmi(void)
 {
     /* empty */
-    return SUCCESS;
+    return 0;
 }
 
 int wcnss_qmi_get_wlan_address(unsigned char *pBdAddr)
@@ -53,7 +50,7 @@ int wcnss_qmi_get_wlan_address(unsigned char *pBdAddr)
             pBdAddr[4],
             pBdAddr[5]);
 
-    return SUCCESS;
+    return 0;
 }
 
 void wcnss_qmi_deinit(void)
