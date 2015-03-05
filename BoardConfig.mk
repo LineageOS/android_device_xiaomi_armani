@@ -75,10 +75,6 @@ BOARD_FLASH_BLOCK_SIZE             := 131072
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
-# GPS
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
-TARGET_NO_RPC := true
-
 # Graphics
 BOARD_EGL_CFG := device/xiaomi/armani/configs/egl.cfg
 TARGET_USES_C2D_COMPOSITION := true
