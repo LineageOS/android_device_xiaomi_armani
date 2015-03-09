@@ -98,6 +98,11 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/xiaomi/armani/cmhw/
 
+# Init
+TARGET_UNIFIED_DEVICE := true
+TARGET_INIT_VENDOR_LIB := libinit_msm
+TARGET_LIBINIT_DEFINES_FILE := device/xiaomi/armani/init/init_armani.c
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
