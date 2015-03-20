@@ -121,9 +121,6 @@ on boot
 on post-fs-data
     mkdir /data/media 0770 media_rw media_rw
 
-    # To observe dnsmasq.leases file for dhcp information of soft ap.
-    chown dhcp system /data/misc/dhcp
-
     # Create directories for Location services
     mkdir /data/misc/location 0770 gps gps
     mkdir /data/misc/location/mq 0770 gps gps

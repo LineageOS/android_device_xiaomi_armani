@@ -146,9 +146,7 @@ PRODUCT_COPY_FILES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
     libdashplayer \
-    libdivxdrmdecrypt \
     libOmxCore \
     libOmxVdec \
     libOmxVdecHevc \
