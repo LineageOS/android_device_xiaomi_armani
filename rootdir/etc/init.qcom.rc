@@ -180,7 +180,6 @@ service rmt_storage /system/bin/rmt_storage
 
 service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
     class core
-    seclabel u:r:bluetooth_loader:s0
     user root
     oneshot
 
@@ -191,7 +190,6 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
     group qcom_oncrpc bluetooth net_bt_admin system
-    seclabel u:r:bluetooth_loader:s0
     disabled
     oneshot
 
