@@ -100,9 +100,6 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio
 
-PRODUCT_PACKAGES += \
-    init.qcom.fm.sh
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8226
