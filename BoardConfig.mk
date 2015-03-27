@@ -80,6 +80,7 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 EXTENDED_FONT_FOOTPRINT := true
 
 # GPS
+TARGET_GPS_HAL_PATH := device/xiaomi/armani/gps
 TARGET_PROVIDES_GPS_LOC_API := true
 
 # Graphics
