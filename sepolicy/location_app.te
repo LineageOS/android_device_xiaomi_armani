@@ -1,0 +1,2 @@
+allow location_app location_socket:sock_file write;
+allow location_app location:unix_stream_socket connectto;
