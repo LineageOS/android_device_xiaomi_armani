@@ -195,10 +195,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.qcom.rc \
-    init.qcom.usb.rc \
-    ueventd.qcom.rc
+    fstab.armani \
+    init.armani.rc \
+    init.armani.usb.rc \
+    ueventd.armani.rc
 
 # Sensors
 PRODUCT_COPY_FILES += \

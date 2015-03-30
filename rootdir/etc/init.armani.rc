@@ -25,7 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import init.qcom.usb.rc
+import init.armani.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -64,7 +64,7 @@ on init
     symlink /storage/usbdisk /usb_storage
 
 on fs
-    mount_all ./fstab.qcom
+    mount_all ./fstab.armani
     restorecon_recursive /persist
     setprop ro.crypto.fuse_sdcard true
     write /sys/kernel/boot_adsp/boot 1
