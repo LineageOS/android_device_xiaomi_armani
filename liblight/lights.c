@@ -20,6 +20,7 @@
 
 #include <cutils/log.h>
 
+#include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <unistd.h>
@@ -31,6 +32,13 @@
 #include <sys/types.h>
 
 #include <hardware/lights.h>
+
+#ifndef min
+#define min(a,b) ((a)<(b)?(a):(b))
+#endif
+#ifndef max
+#define max(a,b) ((a)<(b)?(b):(a))
+#endif
 
 /******************************************************************************/
 
@@ -61,14 +69,29 @@ char const*const GREEN_BLINK_FILE
 char const*const BLUE_BLINK_FILE
         = "/sys/class/leds/blue/blink";
 
-char const*const RED_LED_RAMP_FILE
+char const*const RED_RAMP_MS_FILE
         = "/sys/class/leds/red/ramp_step_ms";
 
-char const*const GREEN_LED_RAMP_FILE
+char const*const GREEN_RAMP_MS_FILE
         = "/sys/class/leds/green/ramp_step_ms";
 
-char const*const BLUE_LED_RAMP_FILE
+char const*const BLUE_RAMP_MS_FILE
         = "/sys/class/leds/blue/ramp_step_ms";
+
+char const*const RED_DUTY_STEPS_FILE
+        = "/sys/class/leds/red/duty_pcts";
+
+char const*const GREEN_DUTY_STEPS_FILE
+        = "/sys/class/leds/green/duty_pcts";
+
+char const*const BLUE_DUTY_STEPS_FILE
+        = "/sys/class/leds/blue/duty_pcts";
+
+// Number of steps to use in the duty array
+#define LED_DUTY_STEPS       60
+
+// Brightness ramp up/down time for blinking
+#define LED_RAMP_MS          48
 
 /**
  * device methods
@@ -81,25 +104,32 @@ void init_globals(void)
 }
 
 static int
-write_int(char const* path, int value)
+write_string(const char *path, const char *buffer)
 {
     int fd;
     static int already_warned = 0;
 
     fd = open(path, O_RDWR);
     if (fd >= 0) {
-        char buffer[20];
-        int bytes = snprintf(buffer, sizeof(buffer), "%d\n", value);
-        ssize_t amt = write(fd, buffer, (size_t)bytes);
+        int bytes = strlen(buffer);
+        int amt = write(fd, buffer, bytes);
         close(fd);
         return amt == -1 ? -errno : 0;
     } else {
         if (already_warned == 0) {
-            ALOGE("write_int failed to open %s\n", path);
+            ALOGE("write_string failed to open %s (%s)\n", path, strerror(errno));
             already_warned = 1;
         }
         return -errno;
     }
+}
+
+static int
+write_int(const char *path, int value)
+{
+    char buffer[20];
+    sprintf(buffer, "%d\n", value);
+    return write_string(path, buffer);
 }
 
 static int
@@ -132,10 +162,17 @@ static int
 set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
+    int len;
     int red, green, blue;
-    int blink, ramp_step_ms;
     int onMS, offMS;
     unsigned int colorRGB;
+
+    if (state == NULL) {
+        write_int(RED_BLINK_FILE, 0);
+        write_int(GREEN_BLINK_FILE, 0);
+        write_int(BLUE_BLINK_FILE, 0);
+        return 0;
+    }
 
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
@@ -161,25 +198,38 @@ set_speaker_light_locked(struct light_device_t* dev,
     blue = colorRGB & 0xFF;
 
     if (onMS > 0 && offMS > 0) {
-        blink = 1;
-        ramp_step_ms = (onMS + offMS) / 48;
-    } else {
-        blink = 0;
-        ramp_step_ms = 0;
-    }
+        char dutystr[(3+1)*LED_DUTY_STEPS+1];
+        char* p = dutystr;
+        int stepMS;
+        int n;
 
-    if (blink) {
+        onMS = max(onMS, LED_RAMP_MS);
+        offMS = max(offMS, LED_RAMP_MS);
+        stepMS = (onMS+offMS)/LED_DUTY_STEPS;
+
+        p += sprintf(p, "0");
+        for (n = 1; n < (onMS/stepMS); ++n) {
+            p += sprintf(p, ",%d", min((100*n*stepMS)/LED_RAMP_MS, 100));
+        }
+        for (n = 0; n < LED_DUTY_STEPS-(onMS/stepMS); ++n) {
+            p += sprintf(p, ",%d", 100 - min((100*n*stepMS)/LED_RAMP_MS, 100));
+        }
+        p += sprintf(p, "\n");
+
         if (red) {
-            write_int(RED_BLINK_FILE, blink);
-            write_int(RED_LED_RAMP_FILE, ramp_step_ms);
+            write_string(RED_DUTY_STEPS_FILE, dutystr);
+            write_int(RED_RAMP_MS_FILE, stepMS);
+            write_int(RED_BLINK_FILE, 1);
         }
         if (green) {
-            write_int(GREEN_BLINK_FILE, blink);
-            write_int(GREEN_LED_RAMP_FILE, ramp_step_ms);
+            write_string(GREEN_DUTY_STEPS_FILE, dutystr);
+            write_int(GREEN_RAMP_MS_FILE, stepMS);
+            write_int(GREEN_BLINK_FILE, 1);
         }
         if (blue) {
-            write_int(BLUE_BLINK_FILE, blink);
-            write_int(BLUE_LED_RAMP_FILE, ramp_step_ms);
+            write_string(BLUE_DUTY_STEPS_FILE, dutystr);
+            write_int(BLUE_RAMP_MS_FILE, stepMS);
+            write_int(BLUE_BLINK_FILE, 1);
         }
     } else {
         write_int(RED_LED_FILE, red);
