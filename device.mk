@@ -109,14 +109,11 @@ PRODUCT_PACKAGES += \
     gps.msm8226
 
 PRODUCT_PACKAGES += \
-    flp.conf \
     gps.conf \
-    izat.conf \
-    lowi.conf \
-    msap.conf \
-    quipc.conf \
-    sap.conf \
-    xtwifi.conf
+    sap.conf
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.gps.agps_provider=1
 
 # IRSC
 PRODUCT_COPY_FILES += \
