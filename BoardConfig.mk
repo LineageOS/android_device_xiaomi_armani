@@ -112,6 +112,9 @@ TARGET_LIBINIT_DEFINES_FILE := device/xiaomi/armani/init/init_armani.c
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Memory
+MALLOC_IMPL := dlmalloc
+
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
