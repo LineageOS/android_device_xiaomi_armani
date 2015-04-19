@@ -48,6 +48,15 @@ BOARD_USES_LEGACY_MMAP := true
 # Charger
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
+# Dex-preoptimization
+ifeq ($(HOST_OS),linux)
+  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
