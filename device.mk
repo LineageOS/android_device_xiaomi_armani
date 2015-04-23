@@ -193,7 +193,7 @@ PRODUCT_PACKAGES += \
     ueventd.armani.rc
 
 # Screen density
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Sensors
