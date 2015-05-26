@@ -48,15 +48,6 @@ BOARD_USES_LEGACY_MMAP := true
 # Charger
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
-# Dex-preoptimization
-ifeq ($(HOST_OS),linux)
-  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
@@ -146,7 +137,6 @@ BOARD_SEPOLICY_DIRS += device/xiaomi/armani/sepolicy
 BOARD_USES_QC_TIME_SERVICES := true
 
 # Vold
-BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 
