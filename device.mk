@@ -77,6 +77,10 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8226 \
     memtrack.msm8226
 
+# DRM
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true
+
 # Ebtables
 PRODUCT_PACKAGES += \
     ebtables \
