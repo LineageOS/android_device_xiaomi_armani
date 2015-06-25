@@ -32,7 +32,4 @@
 <resources>
     <!-- configuration for showing smsc pref -->
     <bool name="config_show_smsc_pref">true</bool>
-
-    <!-- configuration for enter key as send -->
-    <bool name="config_enter_key_as_send">false</bool>
 </resources>
