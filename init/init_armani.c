@@ -87,8 +87,8 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_set("ro.product.device", "armani");
     property_set("ro.build.product", "armani");
-    property_set("ro.build.description", "armani-user 4.4.4 KTU84P 5.6.9 release-keys");
-    property_set("ro.build.fingerprint", "Xiaomi/armani/armani:4.4.4/KTU84P/5.6.9:user/release-keys");
+    property_set("ro.build.description", "armani-user 4.4.4 KTU84P V6.6.1.0.KHCMICF release-keys");
+    property_set("ro.build.fingerprint", "Xiaomi/armani/armani:4.4.4/KTU84P/V6.6.1.0.KHCMICF:user/release-keys");
 
     /* HM 1SW  */
     if (raw_id==2325) {
