@@ -48,6 +48,13 @@ BOARD_USES_LEGACY_MMAP := true
 # Charger
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+  ifeq ($(WITH_DEXPREOPT),)
+    WITH_DEXPREOPT := true
+  endif
+endif
+
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
