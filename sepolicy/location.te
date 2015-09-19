@@ -1,0 +1,1 @@
+allow location init:unix_stream_socket connectto;
