@@ -399,7 +399,7 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
     write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
-    write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 1
+    write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 0
     write /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor 2
     write /sys/devices/system/cpu/cpufreq/ondemand/down_differential 10
     write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_multi_core 70
