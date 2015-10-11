@@ -1,0 +1,2 @@
+allow mm-qcamerad init:unix_stream_socket connectto;
+allow mm-qcamerad socket_device:sock_file { write read };
