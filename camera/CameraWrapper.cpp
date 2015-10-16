@@ -35,6 +35,9 @@
 
 #define UNUSED __attribute__((unused))
 
+// Armani parameter names
+static char KEY_QC_MORPHO_HDR[] = "morpho-hdr";
+
 static android::Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
@@ -126,6 +129,15 @@ static char *camera_fixup_setparams(UNUSED int id, const char *settings)
     ALOGV("%s: original parameters:", __FUNCTION__);
     params.dump();
 #endif
+
+    if (params.get(android::CameraParameters::KEY_SCENE_MODE)) {
+        const char *sceneMode = params.get(android::CameraParameters::KEY_SCENE_MODE);
+        if (strcmp(sceneMode, "hdr") == 0) {
+            params.set(KEY_QC_MORPHO_HDR, "true");
+        } else {
+            params.set(KEY_QC_MORPHO_HDR, "false");
+        }
+    }
 
 #ifdef LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
