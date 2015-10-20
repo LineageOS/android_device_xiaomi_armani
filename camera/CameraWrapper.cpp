@@ -130,6 +130,8 @@ static char *camera_fixup_setparams(UNUSED int id, const char *settings)
     params.dump();
 #endif
 
+    params.set("zsl", "on");
+
     if (params.get(android::CameraParameters::KEY_SCENE_MODE)) {
         const char *sceneMode = params.get(android::CameraParameters::KEY_SCENE_MODE);
         if (strcmp(sceneMode, "hdr") == 0) {
