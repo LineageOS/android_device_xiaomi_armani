@@ -130,7 +130,15 @@ static char *camera_fixup_setparams(UNUSED int id, const char *settings)
     params.dump();
 #endif
 
-    params.set("zsl", "on");
+    /* Disable ZSL in video recording */
+    if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
+        const char *videoMode = params.get(android::CameraParameters::KEY_RECORDING_HINT);
+        if (!strcmp(videoMode, "true")) {
+            params.set("zsl", "off");
+        } else {
+            params.set("zsl", "on");
+        }
+    }
 
     /* Enable morpho and disable flash in HDR mode */
     if (params.get(android::CameraParameters::KEY_SCENE_MODE)) {
