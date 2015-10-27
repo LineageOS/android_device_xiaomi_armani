@@ -122,6 +122,9 @@ static char *camera_fixup_getparams(UNUSED int id, const char *settings)
 
 static char *camera_fixup_setparams(UNUSED int id, const char *settings)
 {
+    bool videoMode = false;
+    bool hdrMode = false;
+
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
@@ -130,25 +133,27 @@ static char *camera_fixup_setparams(UNUSED int id, const char *settings)
     params.dump();
 #endif
 
-    /* Disable ZSL in video recording */
     if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
-        const char *videoMode = params.get(android::CameraParameters::KEY_RECORDING_HINT);
-        if (!strcmp(videoMode, "true")) {
-            params.set("zsl", "off");
-        } else {
-            params.set("zsl", "on");
-        }
+        videoMode = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
+    }
+
+    if (params.get(android::CameraParameters::KEY_SCENE_MODE)) {
+        hdrMode = (!strcmp(params.get(android::CameraParameters::KEY_SCENE_MODE), "hdr"));
+    }
+
+    /* Disable ZSL in video mode */
+    if (videoMode) {
+        params.set("zsl", "off");
+    } else {
+        params.set("zsl", "on");
     }
 
     /* Enable morpho and disable flash in HDR mode */
-    if (params.get(android::CameraParameters::KEY_SCENE_MODE)) {
-        const char *sceneMode = params.get(android::CameraParameters::KEY_SCENE_MODE);
-        if (!strcmp(sceneMode, "hdr")) {
-            params.set(KEY_QC_MORPHO_HDR, "true");
-            params.set(android::CameraParameters::KEY_FLASH_MODE, android::CameraParameters::FLASH_MODE_OFF);
-        } else {
-            params.set(KEY_QC_MORPHO_HDR, "false");
-        }
+    if (hdrMode) {
+        params.set(KEY_QC_MORPHO_HDR, "true");
+        params.set(android::CameraParameters::KEY_FLASH_MODE, android::CameraParameters::FLASH_MODE_OFF);
+    } else {
+        params.set(KEY_QC_MORPHO_HDR, "false");
     }
 
 #ifdef LOG_NDEBUG
