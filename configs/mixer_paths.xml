@@ -27,7 +27,7 @@
     <ctl name="RX1 Digital Volume" value="84" />
     <ctl name="RX2 Digital Volume" value="84" />
     <ctl name="RX3 Digital Volume" value="84" />
-    <ctl name="RX4 Digital Volume" value="84" />
+    <ctl name="RX4 Digital Volume" value="83" />
     <ctl name="ADC1 Volume" value="12" />
     <ctl name="ADC2 Volume" value="12" />
     <ctl name="ADC3 Volume" value="12" />
@@ -843,7 +843,7 @@
     </path>
 
     <path name="speaker-mic">
-        <path name="adc3" />
+        <path name="adc1" />
         <ctl name="ADC1 Volume" value="13" />
         <ctl name="DEC1 Volume" value="84" />
     </path>
@@ -858,10 +858,7 @@
     </path>
 
     <path name="handset-mic">
-        <ctl name="AIF1_CAP Mixer SLIM TX1" value="1"/>
-        <ctl name="SLIM_0_TX Channels" value="One" />
-        <ctl name="SLIM TX1 MUX" value="DEC1" />
-        <ctl name="DEC1 MUX" value="ADC1" />
+        <path name="adc1" />
         <ctl name="ADC1 Volume" value="10" />
         <ctl name="DEC1 Volume" value="84" />
     </path>
@@ -906,10 +903,7 @@
     </path>
 
     <path name="headset-mic">
-        <ctl name="AIF1_CAP Mixer SLIM TX1" value="1"/>
-        <ctl name="SLIM_0_TX Channels" value="One" />
-        <ctl name="SLIM TX1 MUX" value="DEC1" />
-        <ctl name="DEC1 MUX" value="ADC2" />
+        <path name="adc2" />
         <ctl name="ADC2 Volume" value="13" />
         <ctl name="DEC1 Volume" value="84" />
     </path>
@@ -930,13 +924,13 @@
         <ctl name="RX4 MIX1 INP1" value="RX1" />
         <ctl name="SPK DAC Switch" value="1" />
         <ctl name="COMP0 Switch" value="1" />
-        <ctl name="SPK DRV Volume" value="8" />
-        <ctl name="RX1 Digital Volume" value="99" />
-        <ctl name="RX4 Digital Volume" value="99" />
+        <ctl name="RX4 Digital Volume" value="85" />
     </path>
 
     <path name="voice-speaker-mic">
-        <path name="speaker-mic" />
+        <path name="adc1" />
+        <ctl name="ADC1 Volume" value="11" />
+        <ctl name="DEC1 Volume" value="84" />
     </path>
 
     <path name="voice-headphones">
@@ -956,9 +950,13 @@
     </path>
 
     <path name="speaker-and-headphones">
-        <path name="headphones" />
+        <path name="headphones-lite" />
+        <ctl name="COMP1 Switch" value="1" />
+        <ctl name="HPHL Volume" value="20" />
+        <ctl name="HPHR Volume" value="20" />
+        <ctl name="RX1 Digital Volume" value="68" />
+        <ctl name="RX2 Digital Volume" value="68" />
         <ctl name="RX4 MIX1 INP1" value="RX1" />
-        <ctl name="RX4 MIX1 INP2" value="RX2" />
         <ctl name="SPK DAC Switch" value="1" />
         <ctl name="COMP0 Switch" value="1" />
         <ctl name="RX4 Digital Volume" value="84" />
