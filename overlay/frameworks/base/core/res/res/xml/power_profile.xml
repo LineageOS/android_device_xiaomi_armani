@@ -31,7 +31,7 @@
         <value>1497600</value>
         <value>1593600</value>
     </array>
-    <item name="cpu.idle">2.8</item>
+    <item name="cpu.idle">2.52</item>
     <array name="cpu.active">
         <value>66.2</value>
         <value>72.7</value>
@@ -46,5 +46,5 @@
         <value>141.8</value>
         <value>148.5</value>
     </array>
-    <item name="battery.capacity">2000</item>
+    <item name="battery.capacity">2050</item>
 </device>
