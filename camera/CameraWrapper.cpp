@@ -33,9 +33,6 @@
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
 
-// Xiaomi Morpho EasyHDR
-const char KEY_QC_MORPHO_HDR[] = "morpho-hdr";
-
 static android::Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
@@ -150,12 +147,12 @@ static char *camera_fixup_setparams(int id, const char *settings)
         params.set("zsl", "on");
     }
 
-    /* Enable morpho and disable flash in HDR mode */
+    /* Enable Morpho EasyHDR and disable flash in HDR mode */
     if (hdrMode && !videoMode) {
-        params.set(KEY_QC_MORPHO_HDR, "true");
+        params.set("morpho-hdr", "true");
         params.set(android::CameraParameters::KEY_FLASH_MODE, android::CameraParameters::FLASH_MODE_OFF);
     } else {
-        params.set(KEY_QC_MORPHO_HDR, "false");
+        params.set("morpho-hdr", "false");
     }
 
 #if !LOG_NDEBUG
