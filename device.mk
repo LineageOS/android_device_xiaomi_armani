@@ -59,8 +59,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.hfp.client=1 \
     qcom.bt.dev_power_class=1
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
+PRODUCT_PACKAGES += \
+    init.qcom.bt.sh
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
