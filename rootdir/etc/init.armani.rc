@@ -127,7 +127,6 @@ on post-fs-data
     mkdir /data/system/sensors
     chmod 775 /data/system/sensors
     write /data/system/sensors/settings 1
-    restorecon /data/system/sensors/settings
     chmod 664 /data/system/sensors/settings
 
     # AKM setting data
@@ -141,16 +140,9 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-    # Adjust vibrator amplitude
-    write /sys/class/timed_output/vibrator/amp 90
-    chown root system /sys/class/timed_output/vibrator/amp
+    # Vibrator amplitude
+    chown system system /sys/class/timed_output/vibrator/amp
     chmod 0664 /sys/class/timed_output/vibrator/amp
-    restorecon /sys/class/timed_output/vibrator/amp
-
-    # Color calibration control
-    chown root system /sys/devices/virtual/graphics/fb0/rgb
-    chmod 0664 /sys/devices/virtual/graphics/fb0/rgb
-    restorecon /sys/devices/virtual/graphics/fb0/rgb
 
 service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
