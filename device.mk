@@ -72,6 +72,9 @@ PRODUCT_PACKAGES += \
     libxml2
 
 # Charger
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.usb.hvdcp.detect=true
+
 PRODUCT_PACKAGES += \
     charger_res_images
 
