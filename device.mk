@@ -105,11 +105,9 @@ PRODUCT_PACKAGES += \
     resize2fs
 
 # FM
-#PRODUCT_PACKAGES += \
-#    FM2 \
-#    FMRecord \
-#    libqcomfm_jni \
-#    qcom.fmradio
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni
 
 # GPS
 PRODUCT_PACKAGES += \
