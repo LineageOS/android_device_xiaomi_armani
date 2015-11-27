@@ -30,7 +30,6 @@ media.stagefright.enable-fma2dp=true
 media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 mm.enable.smoothstreaming=true
-mm.enable.qcom_parser=37491
 
 # Telephony
 rild.libpath=/vendor/lib/libril-qc-qmi-1.so
