@@ -192,7 +192,7 @@ PRODUCT_PACKAGES += \
 # Qualcomm
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true \
-    ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+    ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
 
 # Ramdisk
 PRODUCT_PACKAGES += \
