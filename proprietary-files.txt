@@ -95,10 +95,6 @@ vendor/lib/libchromatix_s5k3h2yx_owt8a01a_snapshot_hd.so
 vendor/lib/libchromatix_s5k3h2yx_owt8a01a_video_hd.so
 vendor/lib/libchromatix_s5k3h2yx_owt8a01a_zsl.so
 
-# Color convertor
-vendor/lib/libI420colorconvert.so
-vendor/lib/libmm-color-convertor.so
-
 # DRM
 bin/qseecomd
 lib/libdrmdecrypt.so
@@ -152,14 +148,11 @@ vendor/firmware/keymaster/keymaster.b03
 vendor/firmware/keymaster/keymaster.mdt
 
 # Media
-vendor/lib/libHevcSwDecoder.so
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAmrwbplusDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxMux.so
-vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxVdecHevc.so
-vendor/lib/libOmxWmaDec.so
+vendor/lib/libDivxDrm.so
+vendor/lib/libI420colorconvert.so
+vendor/lib/libmm-color-convertor.so
+vendor/lib/libmmosal.so
+vendor/lib/libSHIMDivxDrm.so
 
 # Perf
 bin/mpdecision
