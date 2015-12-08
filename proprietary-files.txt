@@ -175,9 +175,6 @@ vendor/lib/libqmi_encdec.so
 vendor/lib/libqmiservices.so
 vendor/lib/libsmemlog.so
 
-# Quick Charge
-/system/bin/hvdcp
-
 # Radio
 bin/netmgrd
 bin/qmuxd

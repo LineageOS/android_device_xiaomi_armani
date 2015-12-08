@@ -328,17 +328,6 @@ service gsiff_daemon /system/bin/gsiff_daemon
     user system
     group gps net_raw
 
-service hvdcp /system/bin/hvdcp
-    class core
-    user root
-    disabled
-
-on property:persist.usb.hvdcp.detect=true
-    start hvdcp
-
-on property:persist.usb.hvdcp.detect=false
-    stop hvdcp
-
 service charger /sbin/healthd -c
     class charger
     critical
