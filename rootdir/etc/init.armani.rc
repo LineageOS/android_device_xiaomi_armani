@@ -148,12 +148,19 @@ on boot
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
 on post-fs-data
-    # Create directories for Location services
-    mkdir /data/misc/location 0770 gps gps
-    mkdir /data/misc/location/gsiff 0770 gps gps
-
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
+
+    # Create directories for gpsone_daemon services
+    mkdir /data/misc/gpsone_d 0770 system gps
+
+    # Create directories for QuIPS
+    mkdir /data/misc/quipc 0770 system gps
+
+    # Create directories for Location services
+    mkdir /data/misc/location 0770 gps gps
+    mkdir /data/misc/location/mq 0770 gps gps
+    mkdir /data/misc/location/xtwifi 0770 gps gps
 
     # Create directory for hostapd
     mkdir /data/hostapd 0770 system wifi
@@ -364,11 +371,23 @@ service wcnss-service /system/bin/wcnss_service
     group system wifi
     oneshot
 
-#start GNSS/Sensor interface daemon
-service gsiff_daemon /system/bin/gsiff_daemon
+service location_mq /system/bin/location-mq
     class late_start
-    user system
-    group gps net_raw
+    user gps
+    group gps
+    disabled
+
+service xtwifi_client /system/bin/xtwifi-client
+    class late_start
+    user gps
+    group net_admin wifi inet gps
+    disabled
+
+service xtwifi_inet /system/bin/xtwifi-inet-agent
+    class late_start
+    user gps
+    group inet gps
+    disabled
 
 service charger /sbin/healthd -c
     class charger
