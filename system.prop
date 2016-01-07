@@ -5,7 +5,8 @@ ro.qc.sdk.audio.fluencetype=fluence
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=true
 persist.audio.fluence.speaker=false
-audio.offload.24bit.enable=false
+audio.offload.pcm.16bit.enable=false
+audio.offload.pcm.24bit.enable=false
 audio.offload.buffer.size.kb=32
 audio.offload.gapless.enabled=true
 audio.offload.multiple.enabled=false
@@ -13,10 +14,15 @@ audio.offload.video=false
 av.streaming.offload.enable=false
 use.voice.path.for.pcm.voip=true
 
+# CABL
+ro.qualcomm.cabl=0
+
 # Display
 ro.opengles.version=196608
 ro.sf.lcd_density=320
+debug.sf.fb_always_on=1
 debug.sf.hw=1
+debug.egl.hw=1
 debug.composition.type=c2d
 persist.hwc.mdpcomp.enable=true
 debug.mdpcomp.logs=0
@@ -27,16 +33,6 @@ ro.qc.sdk.izat.premium_enabled=1
 ro.qc.sdk.izat.service_mask=0x5
 persist.gps.qc_nlp_in_use=1
 persist.loc.nlp_name=com.qualcomm.services.location
-
-# Media
-media.stagefright.enable-player=true
-media.stagefright.enable-http=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-scan=true
-mmp.enable.3g2=true
-mm.enable.smoothstreaming=true
 
 # Telephony
 rild.libpath=/vendor/lib/libril-qc-qmi-1.so
