@@ -213,6 +213,7 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
     ro.disableWifiApFirmwareReload=true \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0

@@ -75,15 +75,6 @@ on boot
     # Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
-    setprop wifi.interface wlan0
-
-    setprop ro.telephony.call_ring.multiple false
-
-    # Remove SUID bit for iproute2 ip tool
-    chmod 0755 /system/bin/ip
-
-    chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
-
     # For setting tcp delayed ack
     chown system system /sys/kernel/ipv4/tcp_delack_seg
     chown system system /sys/kernel/ipv4/tcp_use_userconfig
