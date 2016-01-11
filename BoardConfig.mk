@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+LOCAL_PATH := device/xiaomi/armani
+
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-smd"
 
@@ -29,7 +31,7 @@ BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/xiaomi/armani/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
@@ -79,15 +81,15 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
 # Hardware tunables
-BOARD_HARDWARE_CLASS := device/xiaomi/armani/cmhw/
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
 
 # Headers
-TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/armani/include
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/xiaomi/armani/init/init_armani.cpp
+TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_armani.cpp
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/xiaomi/armani
@@ -121,7 +123,7 @@ BOARD_USES_QCOM_HARDWARE := true
 TARGET_RIL_VARIANT := caf
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/xiaomi/armani/rootdir/etc/fstab.armani
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.armani
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -130,7 +132,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += device/xiaomi/armani/sepolicy
+BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
