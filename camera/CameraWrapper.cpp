@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2015, The CyanogenMod Project
+ * Copyright (C) 2016, The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,9 +35,6 @@
 
 static android::Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
-
-/* Xiaomi Morpho EasyHDR */
-static char KEY_QC_MORPHO_HDR[] = "morpho-hdr";
 
 static char **fixed_set_params = NULL;
 
@@ -144,24 +141,24 @@ static char *camera_fixup_setparams(int id, const char *settings)
 
     /* Disable ZSL and HDR snapshots in video mode */
     if (videoMode) {
-        params.set("zsl", "off");
+        params.set(android::CameraParameters::KEY_QC_ZSL, "off");
         if (hdrMode) {
             params.set(android::CameraParameters::KEY_SCENE_MODE, "auto");
         }
     } else {
-        params.set("zsl", "on");
+        params.set(android::CameraParameters::KEY_QC_ZSL, "on");
     }
 
     /* Enable Morpho EasyHDR and disable flash in HDR mode */
     if (hdrMode && !videoMode) {
-        params.set(KEY_QC_MORPHO_HDR, "true");
-        params.set("ae-bracket-hdr", "AE-Bracket");
-        params.set("capture-burst-exposures", "-6,8,0");
+        params.set(android::CameraParameters::KEY_QC_MORPHO_HDR, "true");
+        params.set(android::CameraParameters::KEY_QC_AE_BRACKET_HDR, "AE-Bracket");
+        params.set(android::CameraParameters::KEY_QC_CAPTURE_BURST_EXPOSURE, "-6,8,0");
         params.set(android::CameraParameters::KEY_FLASH_MODE, android::CameraParameters::FLASH_MODE_OFF);
     } else {
-        params.set(KEY_QC_MORPHO_HDR, "false");
-        params.set("ae-bracket-hdr", "Off");
-        params.set("capture-burst-exposures", "0,0,0");
+        params.set(android::CameraParameters::KEY_QC_MORPHO_HDR, "false");
+        params.set(android::CameraParameters::KEY_QC_AE_BRACKET_HDR, "Off");
+        params.set(android::CameraParameters::KEY_QC_CAPTURE_BURST_EXPOSURE, "0,0,0");
     }
 
 #if !LOG_NDEBUG
