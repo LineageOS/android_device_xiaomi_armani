@@ -3,6 +3,7 @@ bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
+vendor/lib/libscve.so
 vendor/lib/rfsa/adsp/libadsp_denoise_skel.so
 vendor/lib/rfsa/adsp/libapps_mem_heap.so
 vendor/lib/rfsa/adsp/libdspCV_skel.so
@@ -45,8 +46,6 @@ vendor/lib/libactuator_dw9714_camera.so
 vendor/lib/libarcsoft_beauty_shot.so
 vendor/lib/libFaceDeform.so
 vendor/lib/libFaceProc.so
-vendor/lib/libjpegdhw.so
-vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
 vendor/lib/libmmcamera_hdr_lib.so
@@ -71,9 +70,13 @@ vendor/lib/libmmcamera2_stats_algorithm.so
 vendor/lib/libmmcamera2_stats_modules.so
 vendor/lib/libmmcamera2_vpe_module.so
 vendor/lib/libmmcamera2_wnr_module.so
+vendor/lib/liboemcamera.so
+
+# Camera
+vendor/lib/libjpegdhw.so
+vendor/lib/libjpegehw.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
-vendor/lib/liboemcamera.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 
