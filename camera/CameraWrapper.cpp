@@ -171,11 +171,6 @@ static char *camera_fixup_setparams(int id, const char *settings)
         params.set(android::CameraParameters::KEY_QC_CAPTURE_BURST_EXPOSURE, "0,0,0");
     }
 
-    /* Front camera doesn't have a flash. Make sure apps don't think it does. */
-    if (id == FRONT_CAMERA) {
-        params.set(android::CameraParameters::KEY_FLASH_MODE, android::CameraParameters::FLASH_MODE_OFF);
-    }
-
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
     params.dump();
