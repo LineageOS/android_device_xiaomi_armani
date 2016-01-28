@@ -59,9 +59,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     if (strstr(modem, "HM1AW")) {
         property_set("ro.product.model", "HM 1SW");
-        property_set("ro.telephony.default_network", "0,1");
     } else if (strstr(modem, "HM1AC")) {
         property_set("ro.product.model", "HM 1SC");
-        property_set("ro.telephony.default_network", "7,1");
     }
 }

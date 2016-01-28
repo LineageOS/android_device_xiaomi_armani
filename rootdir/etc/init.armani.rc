@@ -355,6 +355,12 @@ service ril-daemon2 /system/bin/rild -c 2
 on property:persist.radio.multisim.config=dsds
     start ril-daemon2
 
+on property:ro.boot.modem=HM1AW
+    setprop ro.telephony.default_network 0
+
+on property:ro.boot.modem=HM1AC
+    setprop ro.telephony.default_network 7
+
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
     user camera
