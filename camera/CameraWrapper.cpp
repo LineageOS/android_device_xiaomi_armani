@@ -156,6 +156,7 @@ static char *camera_fixup_setparams(int id, const char *settings)
             params.set(android::CameraParameters::KEY_SCENE_MODE, "auto");
         }
     } else {
+        params.set(android::CameraParameters::KEY_QC_TOUCH_AF_AEC, "touch-on");
         params.set(android::CameraParameters::KEY_QC_ZSL, "on");
     }
 
