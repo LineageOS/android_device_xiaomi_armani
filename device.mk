@@ -221,4 +221,5 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
-    ro.disableWifiApFirmwareReload=true
+    ro.disableWifiApFirmwareReload=true \
+    wlan.driver.config=/system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
