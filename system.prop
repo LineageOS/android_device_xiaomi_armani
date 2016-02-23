@@ -14,6 +14,7 @@ audio.offload.buffer.size.kb=32
 audio.offload.gapless.enabled=true
 audio.offload.multiple.enabled=false
 audio.offload.video=false
+audio.offload.disable=true
 av.streaming.offload.enable=false
 use.voice.path.for.pcm.voip=true
 
