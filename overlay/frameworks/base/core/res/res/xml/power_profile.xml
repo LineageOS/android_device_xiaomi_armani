@@ -2,7 +2,7 @@
 <device name="Android">
     <item name="none">0</item>
     <item name="screen.on">95</item>
-    <item name="screen.full">160</item>
+    <item name="screen.full">180</item>
     <item name="bluetooth.active">30</item>
     <item name="bluetooth.on">0.5</item>
     <item name="wifi.on">1</item>
@@ -14,8 +14,10 @@
     <item name="radio.active">250</item>
     <item name="radio.scanning">10</item>
     <array name="radio.on">
+        <value>5</value>
+        <value>4</value>
         <value>3</value>
-        <value>3</value>
+        <value>2</value>
     </array>
     <array name="cpu.speeds">
         <value>300000</value>
@@ -47,5 +49,5 @@
         <value>141</value>
         <value>148</value>
     </array>
-    <item name="battery.capacity">2050</item>
+    <item name="battery.capacity">2000</item>
 </device>
