@@ -49,8 +49,8 @@ static power_profile profiles[PROFILE_MAX] = {
         .io_is_busy = 0,
         .min_sample_time = 60000,
         .sampling_down_factor = 100000,
-        .target_loads = "95 1190400:99",
-        .target_loads_off = "95 1190400:99",
+        .target_loads = "95",
+        .target_loads_off = "95",
         .scaling_max_freq = 787200,
     },
     [PROFILE_BALANCED] = {
@@ -93,8 +93,8 @@ static power_profile profiles[PROFILE_MAX] = {
         .io_is_busy = 0,
         .min_sample_time = 60000,
         .sampling_down_factor = 100000,
-        .target_loads = "95 1190400:99",
-        .target_loads_off = "95 1190400:99",
+        .target_loads = "90",
+        .target_loads_off = "95",
         .scaling_max_freq = 1190400,
     },
 };
