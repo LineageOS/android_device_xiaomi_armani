@@ -38,7 +38,6 @@ bin/mm-qcamera-daemon
 lib/hw/camera.vendor.msm8226.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
-lib/libmm-qcamera.so
 lib/libqomx_core.so
 vendor/lib/libactuator_dw9714.so
 vendor/lib/libactuator_dw9714_camcorder.so
@@ -48,7 +47,6 @@ vendor/lib/libFaceDeform.so
 vendor/lib/libFaceProc.so
 vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
-vendor/lib/libmmcamera_hdr_lib.so
 vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_ov9760_eeprom.so
 vendor/lib/libmmcamera_ov9760_q1v05a.so
@@ -56,7 +54,6 @@ vendor/lib/libmmcamera_s5k3h2yx_eeprom.so
 vendor/lib/libmmcamera_s5k3h2yx_owt8a01a.so
 vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
-vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
