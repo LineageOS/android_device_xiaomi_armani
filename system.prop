@@ -1,6 +1,6 @@
 
 # OTA
-cm.updater.uri=http://ota1.randomdroids.com/api
+cm.updater.uri=https://ota1.randomdroids.com/api
 
 # Audio
 ro.qc.sdk.audio.ssr=false
