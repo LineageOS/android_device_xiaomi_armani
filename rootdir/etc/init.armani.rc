@@ -36,7 +36,6 @@ on init
     mkdir /firmware 0771 system system
 
     # Support legacy paths
-    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
     write /proc/sys/vm/page-cluster 0
