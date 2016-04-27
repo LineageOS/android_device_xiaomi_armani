@@ -105,15 +105,6 @@ on property:sys.usb.config=diag,adb
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
-# charge
-on property:sys.usb.config=charging
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 2717
-    write /sys/class/android_usb/android0/idProduct 1240
-    write /sys/class/android_usb/android0/functions charging
-    write /sys/class/android_usb/android0/enable 1
-    setprop sys.usb.state ${sys.usb.config}
-
 # MIDI
 on property:sys.usb.config=midi
     write /sys/class/android_usb/android0/enable 0
