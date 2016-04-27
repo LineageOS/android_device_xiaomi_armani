@@ -40,13 +40,13 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
+    write /proc/sys/vm/page-cluster 0
+
 on fs
     mount_all fstab.armani
-    restorecon_recursive /persist
-
-    # Activate ZRAM
     swapon_all fstab.armani
-    write /proc/sys/vm/page-cluster 0
+
+    restorecon_recursive /persist
 
 on early-boot
     # Set RLIMIT_MEMLOCK to 64MB
