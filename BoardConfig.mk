@@ -86,9 +86,9 @@ BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Init
+TARGET_INIT_VENDOR_LIB := libinit_armani
+TARGET_RECOVERY_DEVICE_MODULES := libinit_armani
 TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_armani.cpp
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/xiaomi/armani
