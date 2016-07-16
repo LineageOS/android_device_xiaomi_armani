@@ -56,6 +56,6 @@ void vendor_load_properties()
 
     property_set("ro.product.device", "armani");
     property_set("ro.build.product", "armani");
-    property_set("ro.build.description", "armani-user 4.4.4 KTU84P V7.2.3.0.KHCMIDA release-keys");
-    property_set("ro.build.fingerprint", "Xiaomi/armani/armani:4.4.4/KTU84P/V7.2.3.0.KHCMIDA:user/release-keys");
+    property_set("ro.build.description", "armani-user 4.4.4 KTU84P V7.5.1.0.KHCMIDE release-keys");
+    property_set("ro.build.fingerprint", "Xiaomi/armani/armani:4.4.4/KTU84P/V7.5.1.0.KHCMIDE:user/release-keys");
 }
