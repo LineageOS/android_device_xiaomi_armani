@@ -72,11 +72,6 @@ PRODUCT_PACKAGES += \
     libxml2 \
     Snap
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images \
-    libhealthd.armani
-
 # Connectivity
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
