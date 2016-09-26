@@ -101,6 +101,9 @@ BOARD_DTBTOOL_ARGS := --force-v2
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
+# Legacy blobs
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
