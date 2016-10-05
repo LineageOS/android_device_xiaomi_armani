@@ -69,8 +69,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8226 \
-    libxml2 \
-    Snap
+    libxml2
 
 # Connectivity
 PRODUCT_PACKAGES += \
