@@ -173,12 +173,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
 
-# Ramdisk
-PRODUCT_PACKAGES += \
-    fstab.armani \
-    init.armani.rc \
-    init.armani.usb.rc \
-    ueventd.armani.rc
+# Rootdir
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/fstab.armani:root/fstab.armani \
+    $(LOCAL_PATH)/rootdir/init.armani.rc:root/init.armani.rc \
+    $(LOCAL_PATH)/rootdir/init.armani.usb.rc:root/init.armani.usb.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.armani.rc:root/ueventd.armani.rc
 
 # Sensors
 PRODUCT_COPY_FILES += \
