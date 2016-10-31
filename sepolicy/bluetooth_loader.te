@@ -1,0 +1,25 @@
+# Bluetooth script (init.armani.bt.sh)
+type bluetooth_loader, domain, domain_deprecated;
+type bluetooth_loader_exec, exec_type, file_type;
+
+init_daemon_domain(bluetooth_loader)
+
+# Run init.armani.bt.sh
+allow bluetooth_loader shell_exec:file r_file_perms;
+
+# init.armani.bt.sh needs /dev/smd.* access
+allow bluetooth_loader smd_device:chr_file rw_file_perms;
+
+# Run hci_qcomm_init from init.armani.bt.sh
+domain_auto_trans(bluetooth_loader, hci_attach_exec, hci_attach)
+
+# Allow /data/misc/bluetooth access
+allow bluetooth_loader bluetooth_data_file:dir search;
+allow bluetooth_loader bluetooth_data_file:file r_file_perms;
+
+# Set bluetooth property values
+set_prop(bluetooth_loader, bluetooth_prop)
+
+# Allow getprop/setprop for init.armani.bt.sh
+allow bluetooth_loader system_file:file execute_no_trans;
+allow bluetooth_loader toolbox_exec:file rx_file_perms;

@@ -57,8 +57,10 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    bdaddr_xiaomi \
-    init.qcom.bt.sh
+    bdaddr_xiaomi
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/init.armani.bt.sh:system/bin/init.armani.bt.sh
 
 # CABL
 PRODUCT_PROPERTY_OVERRIDES += \
