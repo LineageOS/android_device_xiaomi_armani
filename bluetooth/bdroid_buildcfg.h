@@ -21,4 +21,8 @@
 #define BTM_DEF_LOCAL_NAME   "Xiaomi HM 1S"
 
 #define BLUETOOTH_QTI_SW TRUE
+
+/* Defined if the kernel does not have support for CLOCK_BOOTTIME_ALARM */
+#define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE
+
 #endif
