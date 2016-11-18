@@ -1,7 +1,4 @@
 
-# OTA
-cm.updater.uri=https://ota1.randomdroids.com/api
-
 # Audio
 ro.qc.sdk.audio.ssr=false
 ro.qc.sdk.audio.fluencetype=fluence
