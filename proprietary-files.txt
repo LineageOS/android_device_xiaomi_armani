@@ -100,6 +100,7 @@ vendor/lib/libchromatix_s5k3h2yx_owt8a01a_zsl.so
 
 # DRM
 bin/qseecomd
+vendor/lib/libdrmdecrypt.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
 vendor/lib/libQSEEComAPI.so
