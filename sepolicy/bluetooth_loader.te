@@ -1,3 +1,2 @@
 # Allow /data/misc/bluetooth access
 allow bluetooth_loader bluetooth_data_file:dir search;
-allow bluetooth_loader bluetooth_data_file:file r_file_perms;
