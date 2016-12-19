@@ -284,7 +284,7 @@ service ril-daemon2 /system/bin/rild -c 2
     socket rild-debug2 stream 660 radio system
     user root
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag log
+    group radio cache inet misc audio log readproc wakelock qcom_diag
 
 on property:persist.radio.multisim.config=dsds
     start ril-daemon2
