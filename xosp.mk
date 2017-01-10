@@ -21,17 +21,22 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/armani/device.mk)
 $(call inherit-product-if-exists, vendor/xiaomi/armani/armani-vendor.mk)
 
-# Inherit some common LineageOS stuff
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common XOSP stuff
+$(call inherit-product, vendor/xosp/config/xosp.mk)
+
+# Inherit some common CM stuff
+$(call inherit-product, vendor/xosp/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_DEVICE := armani
-PRODUCT_NAME := lineage_armani
+PRODUCT_NAME := xosp_armani
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := HM 1S
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+RELEASE_TYPE:= XOSP_OFFICIAL
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=armani
