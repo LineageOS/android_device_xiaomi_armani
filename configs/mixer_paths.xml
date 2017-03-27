@@ -274,14 +274,6 @@
         <ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia5" value="1" />
     </path>
 
-    <path name="multi-channel-playback hdmi">
-        <ctl name="HDMI Mixer MultiMedia2" value="1" />
-    </path>
-
-    <path name="multi-channel-playback afe-proxy">
-        <ctl name="AFE_PCM_RX Audio Mixer MultiMedia2" value="1" />
-    </path>
-
     <path name="compress-offload-playback">
         <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia4" value="1" />
     </path>
