@@ -92,7 +92,6 @@ TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_armani
 TARGET_RECOVERY_DEVICE_MODULES := libinit_armani
-TARGET_UNIFIED_DEVICE := true
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/xiaomi/armani
